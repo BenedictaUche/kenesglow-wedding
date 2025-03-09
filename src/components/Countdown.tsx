@@ -15,15 +15,15 @@ const Countdown = () => {
   }, [weddingDate]);
 
   return (
-    <div className="text-center py-28">
+    <div className="text-center py-28 text-[#130c0e]">
       <h1 className="font-ballet text-6xl md:text-8xl">We Do</h1>
       <div className="mt-20">
-        <h1 className="font-medium font-gilda text-4xl md:text-6xl">
+        <h1 className="font-medium font-gilda text-4xl md:text-6xl tracking-[8px]">
           GABRIELLA & JUAN DIEGO
         </h1>
         <div className="mt-10 font-eb-garamond">
-          <p className="text-xl md:text-2xl">JULY 6, 2025</p>
-          <p className="text-lg md:text-xl mt-2">{daysLeft} DAYS TO GO!</p>
+          <p className="text-xl md:text-2xl tracking-[3px]">JULY 6, 2025</p>
+          <p className="text-lg md:text-xl mt-2 tracking-[3px]">{daysLeft} DAYS TO GO!</p>
         </div>
       </div>
     </div>

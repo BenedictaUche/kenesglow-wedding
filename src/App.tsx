@@ -5,6 +5,11 @@ import Events from "./pages/Events";
 import Accommodation from "./pages/Accommodation";
 import './App.css';
 import Countdown from "./components/Countdown";
+import TravelInfo from "./pages/TravelInfo";
+import Attire from "./pages/Attire";
+import Faq from "./pages/Faq";
+import Lagos from "./pages/Lagos";
+import Photos from "./pages/Photos";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -17,6 +22,16 @@ const App = () => {
         return <Events />;
       case "accommodation":
         return <Accommodation />;
+      case "travel-info":
+        return <TravelInfo />;
+      case "attire":
+        return <Attire />;
+      case "qa":
+        return <Faq />;
+      case "lagos":
+        return <Lagos />;
+      case "photos":
+        return <Photos />;
       default:
         return <Home />;
     }

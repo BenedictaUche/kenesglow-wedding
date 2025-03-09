@@ -28,37 +28,37 @@ const events = [
 
 const Home = () => {
     return (
-        <div className="p-4">
+        <div className="p-4 font-abhaya">
             <img src={HomeHeaderImg} alt="Home Header" className="w-full" />
             <div className="flex justify-center items-center my-6 text-gray-500 text-center">
-                <p className="font-eb-garamond text-lg text-[#828282]">
+                <p className=" text-lg text-[#828282]">
                     We can't wait to share this special day with our closest family and
                     friends, and <br className="hidden md:block" />
                     we are honored that you will be part of it!
                 </p>
             </div>
 
-            <div className="flex flex-col items-center mt-20 gap-4 font-eb-garamond text-[#515151]">
+            <div className="flex flex-col items-center mt-20 gap-4  text-[#130c0e]">
                 <h1 className="font-normal text-4xl uppercase">Wedding Day</h1>
-                <p className="text-xl uppercase font-medium">July 6, 2025</p>
-                <p className="text-xl uppercase font-medium">4:00PM - 2:00AM</p>
-                <div className="mx-auto text-center mt-4 text-[#828282] font-medium">
+                <p className="text-[23px] uppercase font-normal">July 6, 2025</p>
+                <p className="text-[23px] uppercase font-normal">4:00PM - 2:00AM</p>
+                <div className="mx-auto text-center mt-4 text-[#828282] font-medium text-lg tracking-[1px]">
                     <p>Viola - Wink Eventos</p>
                     <p>259 Calle 36C Suite, Envigado, Antioquia 055427 Colombia</p>
                 </div>
 
                 {/* Event Section */}
-                <div className="mt-10 w-full max-w-2xl">
+                <div className="mt-10 w-full max-w-2xl text-[#130c0e]">
                     {events.map((event, index) => (
                         <div key={index} className="text-center">
                             <div className="flex flex-col md:flex-row gap-4 md:gap-24 justify-center pb-10">
-                                <p className="text-2xl font-bold text-[#515151]">{event.time}</p>
+                                <p className="text-2xl font-bold ">{event.time}</p>
                                 <div className="flex flex-col justify-start text-start">
                                     <p className="text-2xl font-medium uppercase mt-1">
                                         {event.title}
                                     </p>
-                                    <p className="text-gray-600 italic mt-1">{event.attire}</p>
-                                    <p className="mt-2 text-gray-500">{event.description}</p>
+                                    <p className="italic mt-1">{event.attire}</p>
+                                    <p className="mt-2 ">{event.description}</p>
                                 </div>
                             </div>
                             {index !== events.length - 1 && (
@@ -70,7 +70,7 @@ const Home = () => {
             </div>
 
             {/* Venue Location Section */}
-            <div className="mt-20 font-eb-garamond flex flex-col justify-center items-center text-center">
+            <div className="mt-20  flex flex-col justify-center items-center text-center">
                 <h1 className="text-3xl font-light uppercase">Venue Location</h1>
                 <div className="my-10">
                     <img

@@ -14,16 +14,18 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
     { id: "home", label: "Home" },
     { id: "events", label: "Events" },
     { id: "accommodation", label: "Accommodation" },
-    { id: "photos", label: "Photos" },
+    { id: "travel-info", label: "Travel Info" },
+    { id: "lagos", label: "Lagos" },
     { id: "wedding-party", label: "Wedding Party" },
-    { id: "q-a", label: "Q + A" },
-    { id: "travel", label: "Travel" },
+    { id: "photos", label: "Photos" },
+    { id: "attire", label: "Attire" },
+    { id: "qa", label: "Q + A" },
     { id: "things-to-do", label: "Things to Do" },
     { id: "registry", label: "Registry" },
   ];
 
   return (
-    <nav className="">
+    <nav className="font-abhaya text-[#130c0e] text-lg tracking-[2px]">
       <div className="container mx-auto p-4 flex justify-end">
         {/* Mobile Menu Button (Hidden on Larger Screens) */}
         <button
@@ -75,7 +77,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
       </AnimatePresence>
 
       {/* Tabs for Larger Screens (Hidden on Mobile) */}
-      <div className="hidden md:flex space-x-6">
+      <div className="hidden md:flex space-x-6 flex-wrap justify-center">
         {tabs.map((tab) => (
           <button
             key={tab.id}
