@@ -10,6 +10,8 @@ import Attire from "./pages/Attire";
 import Faq from "./pages/Faq";
 import Lagos from "./pages/Lagos";
 import Photos from "./pages/Photos";
+import Registry from "./pages/Registry";
+import Rsvp from "./pages/Rsvp";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -32,6 +34,10 @@ const App = () => {
         return <Lagos />;
       case "photos":
         return <Photos />;
+      case "registry":
+        return <Registry />;
+      case "rsvp":
+        return <Rsvp />;
       default:
         return <Home />;
     }

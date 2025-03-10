@@ -22,6 +22,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
     { id: "qa", label: "Q + A" },
     { id: "things-to-do", label: "Things to Do" },
     { id: "registry", label: "Registry" },
+    { id: "rsvp", label: "RSVP" },
   ];
 
   return (
