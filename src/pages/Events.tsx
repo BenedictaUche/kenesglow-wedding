@@ -2,7 +2,7 @@
 
 const events = [
   {
-    date: "JULY 4TH - GUATAPE TOUR",
+    date: "JUNE 6TH - Arrival & Welcome Cocktail",
     image: "/images/events-mountain.png",
     description:
       "Explore the vibrant streets of Guatape, climb the famous El Peñol Rock for a stunning panoramic view, and enjoy a boat ride on the nearby waters.",
@@ -32,7 +32,7 @@ const events = [
     showButton: false,
   },
   {
-    date: "JULY 5TH - WELCOME PARTY",
+    date: "JUNE 7TH - Wedding Day & Ceremonies",
     image: "/images/events-mountain.png",
     description:
       "Let's kick off the wedding celebrations with some delicious drinks and fun moments the evening before the wedding.",
@@ -45,7 +45,7 @@ const events = [
     showButton: true,
   },
   {
-    date: "JULY 6TH - ANOTHER EVENT",
+    date: "JUNE 8TH - Farewells & Departure",
     image: "/images/events-mountain.png",
     description: "Details about another event happening on July 6th.",
     details: [

@@ -43,8 +43,8 @@ const Home = () => {
                 <p className="text-[23px] uppercase font-normal">July 6, 2025</p>
                 <p className="text-[23px] uppercase font-normal">4:00PM - 2:00AM</p>
                 <div className="mx-auto text-center mt-4 text-[#828282] font-medium text-lg tracking-[1px]">
-                    <p>Viola - Wink Eventos</p>
-                    <p>259 Calle 36C Suite, Envigado, Antioquia 055427 Colombia</p>
+                    <p>Domaine de Baulieu - Route B14C</p>
+                    <p>13840 ROGNES EN PROVENCE</p>
                 </div>
 
                 {/* Event Section */}

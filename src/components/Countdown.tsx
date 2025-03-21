@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Countdown = () => {
-  const weddingDate = new Date("2025-07-06").getTime();
+  const weddingDate = new Date("2025-04-22").getTime();
   const [daysLeft, setDaysLeft] = useState(0);
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const Countdown = () => {
       <h1 className="font-ballet text-6xl md:text-8xl">We Do</h1>
       <div className="mt-20">
         <h1 className="font-medium font-gilda text-4xl md:text-6xl tracking-[8px]">
-          GABRIELLA & JUAN DIEGO
+          KENE & UGO
         </h1>
         <div className="mt-10 font-eb-garamond">
-          <p className="text-xl md:text-2xl tracking-[3px]">JULY 6, 2025</p>
+          <p className="text-xl md:text-2xl tracking-[3px]">APRIL 22, 2025</p>
           <p className="text-lg md:text-xl mt-2 tracking-[3px]">{daysLeft} DAYS TO GO!</p>
         </div>
       </div>

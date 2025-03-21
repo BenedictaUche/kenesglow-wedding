@@ -12,6 +12,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
 
   const tabs = [
     { id: "home", label: "Home" },
+    { id: "traditional", label: "Traditional" },
     { id: "events", label: "Events" },
     { id: "accommodation", label: "Accommodation" },
     { id: "travel-info", label: "Travel Info" },

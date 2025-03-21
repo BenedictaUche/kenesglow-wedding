@@ -12,6 +12,8 @@ import Lagos from "./pages/Lagos";
 import Photos from "./pages/Photos";
 import Registry from "./pages/Registry";
 import Rsvp from "./pages/Rsvp";
+import Traditional from "./pages/Traditional";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -20,6 +22,8 @@ const App = () => {
     switch (activeTab) {
       case "home":
         return <Home />;
+      case "traditional":
+        return <Traditional />;
       case "events":
         return <Events />;
       case "accommodation":
@@ -48,6 +52,7 @@ const App = () => {
       <Countdown />
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
       <main className="mt-20">{renderPage()}</main>
+      <Footer />
     </div>
   );
 };
