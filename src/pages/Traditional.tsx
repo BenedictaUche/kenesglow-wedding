@@ -1,4 +1,4 @@
-import React from "react";
+
 import HomeHeaderImg from "/images/home-headerImg.png";
 
 const Traditional = () => {
