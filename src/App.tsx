@@ -14,6 +14,7 @@ import Registry from "./pages/Registry";
 import Rsvp from "./pages/Rsvp";
 import Traditional from "./pages/Traditional";
 import Footer from "./components/Footer";
+import WeddingParty from "./pages/WeddingParty";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -42,6 +43,8 @@ const App = () => {
         return <Registry />;
       case "rsvp":
         return <Rsvp />;
+      case "wedding-party":
+        return <WeddingParty />
       default:
         return <Home />;
     }

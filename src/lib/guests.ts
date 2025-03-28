@@ -1,9 +1,5 @@
 export const guests = [
-    "John Doe",
-    "Jane Smith",
-    "Michael Johnson",
-    "Emily Davis",
-    "Kene Obiejesi",
-    "Diego Martinez",
-    "Daniella Rodriguez"
+  { name: "Jane Doe", partner: "John Doe" },
+  { name: "Kene Obiejesi", partner: "Ugo Okenkwo" },
+  { name: "Chukwudi" },
   ];
