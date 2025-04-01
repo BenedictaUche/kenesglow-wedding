@@ -1,9 +1,7 @@
-
-
 const events = [
   {
-    date: "JUNE 6TH - Arrival & Welcome Cocktail",
-    image: "/images/events-mountain.png",
+    date: "APRIL 21ST - Welcome Cocktail",
+    image: "/images/cocktail.jpg",
     description:
       "Explore the vibrant streets of Guatape, climb the famous El Peñol Rock for a stunning panoramic view, and enjoy a boat ride on the nearby waters.",
     deadline: "**Deadline to book the tour: June 4th**",
@@ -32,8 +30,8 @@ const events = [
     showButton: false,
   },
   {
-    date: "JUNE 7TH - Wedding Day & Ceremonies",
-    image: "/images/events-mountain.png",
+    date: "APRIL 22ND - Traditional Wedding Ceremony",
+    image: "/images/trad-2.jpg",
     description:
       "Let's kick off the wedding celebrations with some delicious drinks and fun moments the evening before the wedding.",
     details: [
@@ -45,7 +43,19 @@ const events = [
     showButton: true,
   },
   {
-    date: "JUNE 8TH - Farewells & Departure",
+    date: "APRIL 22ND - After Party",
+    image: "/images/dancing-trad.jpg",
+    description: "Details about another event happening on July 6th.",
+    details: [
+      {
+        title: "LOCATION",
+        items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire"],
+      },
+    ],
+    showButton: true,
+  },
+  {
+    date: "APRIL 23RD - Departure",
     image: "/images/events-mountain.png",
     description: "Details about another event happening on July 6th.",
     details: [
@@ -60,31 +70,59 @@ const events = [
 
 const Events = () => {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10 font-eb-garamond text-[#515151]">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10 font-eb-garamond text-[#515151]">
       {events.map((event, index) => (
-        <div key={index} className="mb-12">
-          <h2 className="text-4xl font-medium uppercase mb-6 text-black">{event.date}</h2>
-          <img src={event.image} alt={event.date} className="w-xl h-[500px]  mb-4" />
-          <p className="text-[#828282] font-medium text-lg mb-4 w-xl">{event.description}</p>
-          {event.deadline && <p className="text-black text-xl font-semibold mb-4">{event.deadline}</p>}
+        <div key={index} className="mb-8 sm:mb-10 md:mb-12">
+          {/* Event Date Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase mb-4 sm:mb-6 text-black">
+            {event.date}
+          </h2>
+
+          {/* Event Image - Made responsive */}
+          <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[500px] mb-3 sm:mb-4 overflow-hidden rounded-lg">
+            <img
+              src={event.image}
+              alt={event.date}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+          {/* Event Description */}
+          <p className="text-[#828282] font-medium text-base sm:text-lg mb-3 sm:mb-4">
+            {event.description}
+          </p>
+
+          {/* Deadline (if exists) */}
+          {event.deadline && (
+            <p className="text-black text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+              {event.deadline}
+            </p>
+          )}
+
+          {/* Event Details */}
           {event.details.map((detail, idx) => (
-            <div key={idx} className="mb-4 mt-10">
-              <h3 className="font-semibold text-black">{detail.title}</h3>
-              <ul className="list-disc pl-5 text-gray-600">
+            <div key={idx} className="mb-3 sm:mb-4 mt-6 sm:mt-8 md:mt-10">
+              <h3 className="font-semibold text-black text-lg sm:text-xl">
+                {detail.title}
+              </h3>
+              <ul className="list-disc pl-5 text-gray-600 space-y-1 sm:space-y-2">
                 {detail.items.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <li key={i} className="text-sm sm:text-base">
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
-          {/* Show button only for events after July 4th */}
-          <div className="flex justify-center">
+
+          {/* Button (if showButton is true) */}
           {event.showButton && (
-            <button className="bg-black text-white px-6 py-2 uppercase text-xl tracking-wider hover:bg-gray-800 transition">
-              Website
-            </button>
+            <div className="flex justify-center mt-4 sm:mt-6">
+              <button className="bg-black text-white px-4 py-1.5 sm:px-5 sm:py-2 md:px-6 uppercase text-sm sm:text-base md:text-lg tracking-wider hover:bg-gray-800 transition rounded">
+                Website
+              </button>
+            </div>
           )}
-          </div>
         </div>
       ))}
     </div>

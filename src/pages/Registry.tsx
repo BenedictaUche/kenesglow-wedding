@@ -12,10 +12,10 @@ const Registry = () => {
       </p>
 
       {/* Bank Account Details */}
-      <div className='bg-[#f9f9f9] shadow-md rounded-lg p-6 w-full max-w-md text-left'>
+      <div className='bg-[#f9f9f9] shadow-md rounded-lg p-6 w-full max-w-md text-left gap-10'>
         <h2 className='text-xl font-semibold mb-2 uppercase'>Bank Details</h2>
         <p className='text-lg'><strong>Bank Name:</strong> XYZ Bank</p>
-        <p className='text-lg'><strong>Account Name:</strong> John & Kene Wedding</p>
+        <p className='text-lg'><strong>Account Name:</strong> Ugo & Kene's Wedding</p>
         <p className='text-lg'><strong>Account Number:</strong> 1234567890</p>
       </div>
 

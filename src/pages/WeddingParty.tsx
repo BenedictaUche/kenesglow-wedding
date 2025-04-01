@@ -9,8 +9,11 @@ type Member = {
 const weddingParty: Member[] = [
   { name: "Marcelo Abinum", role: "Best Man", image: "/images/manSmiling1.jpg" },
   { name: "Giselle Fakhri", role: "Maid of Honor", image: "/images/manSmiling2.jpg" },
-  { name: "Lucia Echeverri", role: "Bridesmaid", image: "/images/womanSmiling1.jpg" },
-  { name: "Alessandra Lucca", role: "Bridesmaid", image: "/images/womanSmiling2.jpg" }
+  { name: "Chinemelum", role: "Bridesmaid", image: "/images/chinemelum.jpg" },
+  { name: "Tamara", role: "Bridesmaid", image: "/images/tamara.jpg" },
+  { name: "Tomi Dahunsi", role: "Bridesmaid", image: "/images/tomi.jpg" },
+  { name: "Victoria", role: "Bridesmaid", image: "/images/victoria.jpg" },
+  { name: "Odinaka", role: "Bridesmaid", image: "/images/odinaka.jpg" },
 ];
 
 const WeddingParty: React.FC = () => {
