@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tabs from "./components/Tabs";
 import Home from "./pages/Home";
 import Events from "./pages/Events";
@@ -15,11 +15,27 @@ import Rsvp from "./pages/Rsvp";
 import Traditional from "./pages/Traditional";
 import Footer from "./components/Footer";
 import WeddingParty from "./pages/WeddingParty";
+import EntryPage from "./pages/EntryPage";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("home");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAfterAccessDate, setIsAfterAccessDate] = useState(false);
+
+  // Check if the current date is after April 25, 2025
+  useEffect(() => {
+    const accessDate = new Date("2025-04-25").getTime();
+    const currentDate = new Date().getTime();
+    setIsAfterAccessDate(currentDate >= accessDate);
+  }, []);
+
+  // Pages accessible before April 25, 2025
+  const allowedPagesBeforeDate = ["home", "traditional", "events", "photos", "wedding-party"];
 
   const renderPage = () => {
+    if (!isAuthenticated && !isAfterAccessDate) {
+      return <EntryPage onCodeSubmit={(code) => setIsAuthenticated(true)} />;
+    }
     switch (activeTab) {
       case "home":
         return <Home />;
@@ -44,7 +60,7 @@ const App = () => {
       case "rsvp":
         return <Rsvp />;
       case "wedding-party":
-        return <WeddingParty />
+        return <WeddingParty />;
       default:
         return <Home />;
     }
@@ -52,10 +68,21 @@ const App = () => {
 
   return (
     <div className="container mx-auto my-5 relative">
-      <Countdown />
-      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main className="mt-20">{renderPage()}</main>
-      <Footer />
+      {isAuthenticated || isAfterAccessDate ? (
+        <>
+          <Countdown />
+          <Tabs
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            isAfterAccessDate={isAfterAccessDate}
+            allowedPagesBeforeDate={allowedPagesBeforeDate}
+          />
+          <main className="mt-20">{renderPage()}</main>
+          <Footer />
+        </>
+      ) : (
+        renderPage()
+      )}
     </div>
   );
 };

@@ -5,12 +5,19 @@ import { motion, AnimatePresence } from "framer-motion";
 interface TabsProps {
   activeTab: string;
   setActiveTab: Dispatch<SetStateAction<string>>;
+  isAfterAccessDate: boolean;
+  allowedPagesBeforeDate: string[];
 }
 
-const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
+const Tabs: React.FC<TabsProps> = ({
+  activeTab,
+  setActiveTab,
+  isAfterAccessDate,
+  allowedPagesBeforeDate,
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const tabs = [
+  const allTabs = [
     { id: "home", label: "Home" },
     { id: "traditional", label: "Traditional" },
     { id: "events", label: "Events" },
@@ -26,6 +33,11 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
     { id: "rsvp", label: "RSVP" },
   ];
 
+  // Filter tabs based on access date
+  const filteredTabs = isAfterAccessDate
+    ? allTabs
+    : allTabs.filter((tab) => allowedPagesBeforeDate.includes(tab.id));
+
   return (
     <nav className="font-abhaya text-[#130c0e] text-lg tracking-[2px]">
       <div className="container mx-auto p-4 flex justify-end">
@@ -33,7 +45,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
         <button
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
-            document.body.style.overflow = isMobileMenuOpen ? "auto" : "hidden"; // Prevent scrolling when menu is open
+            document.body.style.overflow = isMobileMenuOpen ? "auto" : "hidden";
           }}
           className="text-gray-700 focus:outline-none md:hidden z-50 absolute top-0 right-5"
         >
@@ -59,13 +71,13 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center z-40"
           >
-            {tabs.map((tab) => (
+            {filteredTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => {
                   setActiveTab(tab.id);
                   setIsMobileMenuOpen(false);
-                  document.body.style.overflow = "auto"; // Restore scrolling
+                  document.body.style.overflow = "auto";
                 }}
                 className={`block text-center py-2 font-eb-garamond text-2xl transition-all ${
                   activeTab === tab.id ? "border-b-2 border-black text-black" : "text-gray-700"
@@ -80,7 +92,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
 
       {/* Tabs for Larger Screens (Hidden on Mobile) */}
       <div className="hidden md:flex space-x-6 flex-wrap justify-center">
-        {tabs.map((tab) => (
+        {filteredTabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
