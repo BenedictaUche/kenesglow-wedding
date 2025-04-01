@@ -34,7 +34,7 @@ const App = () => {
 
   const renderPage = () => {
     if (!isAuthenticated && !isAfterAccessDate) {
-      return <EntryPage onCodeSubmit={(code) => setIsAuthenticated(true)} />;
+      return <EntryPage onCodeSubmit={(_code) => setIsAuthenticated(true)} />;
     }
     switch (activeTab) {
       case "home":
