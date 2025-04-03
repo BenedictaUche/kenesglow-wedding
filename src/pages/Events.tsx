@@ -54,10 +54,10 @@ const events = [
   {
     date: "APRIL 23RD - Departure",
     image: "/images/events-mountain.png",
-    description: "Details about another event happening on July 6th.",
+    description: "As our wedding celebrations come to a close, we want to take a moment to express our deepest gratitude to each and every one of you for being part of our special day. Your presence, love, and support have made this experience truly unforgettable. Safe travels back home - we wish you smooth journeys and happy memories",
     details: [
       {
-        title: "",
+        title: "Thank You!",
         items: [],
       },
     ],
