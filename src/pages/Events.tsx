@@ -1,29 +1,17 @@
 const events = [
   {
     date: "APRIL 21ST - Welcome Cocktail",
-    image: "/images/cocktail.jpg",
+    image: "/images/cocktail1.jpg",
     description:
-      "Explore the vibrant streets of Guatape, climb the famous El Peñol Rock for a stunning panoramic view, and enjoy a boat ride on the nearby waters.",
-    deadline: "**Deadline to book the tour: June 4th**",
+      "For those arriving before the traditional wedding date, you are specially invited to the welcome cocktail as you settle into the resort.",
+    deadline: "**Kindly book your room at the resort as early as the 8th of April as there is limited availability. **",
     details: [
       {
-        title: "What's Included",
+        title: "Guide",
         items: [
-          "Round Trip Private Transportation",
-          "Local Trip Guide",
-          "Lunch by the Rocks",
-          "Tickets Included",
-          "Boat ride (shared)",
-        ],
-      },
-      {
-        title: "Payment",
-        items: [
-          "Round Trip Private Transportation",
-          "Local Trip Guide",
-          "Lunch by the Rocks",
-          "Tickets Included",
-          "Boat ride (shared)",
+          "Please ensure your flight has been booked to Asaba airport.",
+          "Notify the coordinator assigned to ensure arrangements are made for pickup from the airport to the resort; accompanied by security.",
+          "Please book your room at the resort or any other alternative hotel arrangements close to the event venue.",
         ],
       },
     ],
@@ -33,26 +21,35 @@ const events = [
     date: "APRIL 22ND - Traditional Wedding Ceremony",
     image: "/images/trad-2.jpg",
     description:
-      "Let's kick off the wedding celebrations with some delicious drinks and fun moments the evening before the wedding.",
+      "The moment we have all been waiting for. As we celebrate the couple of the moment Kene and Ugo, we want to ensure all our amazing guests who have joined us for this special occasion have a wonderful experience. We have put together a few details to help you navigate the day.",
     details: [
       {
+        title: "Guide",
+        items: [
+          "Kindly be at the venue on or before 12pm on the day to ensure you are well received and  taken care of. ",
+          "For those staying at the resort, although it is walking distance as well, transportation to the venue will be provided.",
+          "For those coming on the day kindly inform the coordinator to ensure all pick-up arrangements are made. Thank you!",
+        ],
+      },
+      {
         title: "LOCATION",
-        items: ["BARBARÁN RUM & GIN BAR", "JULY 5TH, 2025", "8:00 PM - 12:00 AM", "Optional Attire"],
+        items: ["Acropolis Event Centre, 1001 Obijackson Boulevard Amaranta, Oghalegbu-Okija", "April 22nd, 2025", "12:00 PM", "Your best attire"],
       },
     ],
-    showButton: true,
+    showButton: false,
   },
   {
     date: "APRIL 22ND - After Party",
-    image: "/images/dancing-trad.jpg",
+    image: "/images/afterparty.jpg",
     description: "Details about another event happening on July 6th.",
     details: [
       {
         title: "LOCATION",
         items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire"],
       },
+
     ],
-    showButton: true,
+    showButton: false,
   },
   {
     date: "APRIL 23RD - Departure",
@@ -60,11 +57,11 @@ const events = [
     description: "Details about another event happening on July 6th.",
     details: [
       {
-        title: "LOCATION",
-        items: ["Venue Name", "July 6th, 2025", "6:00 PM - 11:00 PM", "Formal Attire"],
+        title: "",
+        items: [],
       },
     ],
-    showButton: true,
+    showButton: false,
   },
 ];
 

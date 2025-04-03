@@ -7,8 +7,7 @@ type Member = {
 };
 
 const weddingParty: Member[] = [
-  { name: "Marcelo Abinum", role: "Best Man", image: "/images/manSmiling1.jpg" },
-  { name: "Giselle Fakhri", role: "Maid of Honor", image: "/images/manSmiling2.jpg" },
+  { name: "Uzoulu", role: "Maid of Honor", image: "/images/uzoulu.jpg" },
   { name: "Chinemelum", role: "Bridesmaid", image: "/images/chinemelum.jpg" },
   { name: "Tamara", role: "Bridesmaid", image: "/images/tamara.jpg" },
   { name: "Tomi Dahunsi", role: "Bridesmaid", image: "/images/tomi.jpg" },

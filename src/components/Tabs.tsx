@@ -5,38 +5,25 @@ import { motion, AnimatePresence } from "framer-motion";
 interface TabsProps {
   activeTab: string;
   setActiveTab: Dispatch<SetStateAction<string>>;
-  isAfterAccessDate: boolean;
-  allowedPagesBeforeDate: string[];
+  allowedTabs: string[];
 }
 
 const Tabs: React.FC<TabsProps> = ({
   activeTab,
   setActiveTab,
-  isAfterAccessDate,
-  allowedPagesBeforeDate,
+  allowedTabs,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const allTabs = [
-    { id: "home", label: "Home" },
     { id: "traditional", label: "Traditional" },
     { id: "events", label: "Events" },
-    { id: "accommodation", label: "Accommodation" },
-    { id: "travel-info", label: "Travel Info" },
-    { id: "lagos", label: "Lagos" },
     { id: "wedding-party", label: "Wedding Party" },
     { id: "photos", label: "Photos" },
-    { id: "attire", label: "Attire" },
-    { id: "qa", label: "Q + A" },
-    { id: "things-to-do", label: "Things to Do" },
-    { id: "registry", label: "Registry" },
-    { id: "rsvp", label: "RSVP" },
   ];
 
-  // Filter tabs based on access date
-  const filteredTabs = isAfterAccessDate
-    ? allTabs
-    : allTabs.filter((tab) => allowedPagesBeforeDate.includes(tab.id));
+  // Filter to only show allowed tabs
+  const filteredTabs = allTabs.filter(tab => allowedTabs.includes(tab.id));
 
   return (
     <nav className="font-abhaya text-[#130c0e] text-lg tracking-[2px]">
