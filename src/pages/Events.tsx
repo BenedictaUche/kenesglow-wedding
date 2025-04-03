@@ -35,17 +35,26 @@ const events = [
         title: "LOCATION",
         items: ["Acropolis Event Centre, 1001 Obijackson Boulevard Amaranta, Oghalegbu-Okija", "April 22nd, 2025", "12:00 PM", "Your best attire"],
       },
+      {
+        title: "Important Notes",
+        items: [
+          "This is your time to let loose and celebrate with us!",
+          "We'll have premium drinks, great music, and an amazing atmosphere",
+          "While we'll have tight security present, please keep personal belongings secure",
+          "Consider leaving valuables in your hotel safe if possible",
+        ],
+      },
     ],
     showButton: false,
   },
   {
     date: "APRIL 22ND - After Party",
     image: "/images/afterparty.jpg",
-    description: "Details about another event happening on July 6th.",
+    description: "Let's keep the celebration going! After the traditional ceremony, join us for an unforgettable night of music, dancing, and fun as we party into the night.",
     details: [
       {
         title: "LOCATION",
-        items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire"],
+        items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire - Dress to impress!"],
       },
 
     ],
