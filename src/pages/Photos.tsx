@@ -2,18 +2,11 @@ const photos = [
   { src: "/images/trad-1.jpg", alt: "Couple running on beach", bw: false },
   { src: "/images/trad-2.jpg", alt: "Holding hands by the ocean", bw: true },
   { src: "/images/trad-3.jpg", alt: "Elegant staircase", bw: false },
-  { src: "/images/trad-2.jpg", alt: "Black and white beach moment", bw: false },
-  { src: "/images/trad-1.jpg", alt: "Romantic columns scene", bw: false },
-  { src: "/images/trad-3.jpg", alt: "Elevator wedding photo", bw: false },
-  { src: "/images/trad-2.jpg", alt: "Sunset beach walk", bw: true },
+  { src: "/images/trad-4.jpg", alt: "Black and white beach moment", bw: false },
+  { src: "/images/trad-5.jpg", alt: "Romantic columns scene", bw: true },
+  { src: "/images/trad-6.jpg", alt: "Elevator wedding photo", bw: false },
+  { src: "/images/trad-7.jpg", alt: "Sunset beach walk", bw: true },
   { src: "/images/trad-3.jpg", alt: "Close-up of wedding rings", bw: false },
-  { src: "/images/trad-1.jpg", alt: "Candid laughter", bw: true },
-  { src: "/images/trad-1.jpg", alt: "Dancing under the lights", bw: false },
-  { src: "/images/trad-1.jpg", alt: "Wedding bouquet", bw: true },
-  { src: "/images/trad-1.jpg", alt: "Bride and groom first look", bw: false },
-  { src: "/images/trad-1.jpg", alt: "Family celebration", bw: false },
-  { src: "/images/trad-1.jpg", alt: "Cake cutting moment", bw: false },
-  { src: "/images/trad-1.jpg", alt: "Romantic boat ride", bw: false },
 ];
 
 const Photos = () => {
@@ -34,11 +27,11 @@ const Photos = () => {
               loading="lazy"
             />
             {/* Optional: Add a subtle overlay with the alt text on hover */}
-            <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-end p-2 sm:p-3">
+            {/* <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-end p-2 sm:p-3">
               <p className="text-black text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 truncate">
                 {photo.alt}
               </p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
