@@ -78,6 +78,11 @@ const Traditional = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase text-[#5A4A42]">
             Accommodation
           </h2>
+          <img
+            src="/images/room.jpg"
+            alt="Airport"
+            className="w-full max-w-md sm:max-w-lg mx-auto shadow-md mt-2 sm:mt-4 rounded-lg"
+          />
           <p className="text-base sm:text-lg mt-2 sm:mt-4">
             Exclusive wedding packages at Acropolis Gardens & Residence:
           </p>
