@@ -85,7 +85,7 @@ const Events = () => {
           </div>
 
           {/* Event Description */}
-          <p className="text-[#828282] font-medium text-base sm:text-lg mb-3 sm:mb-4">
+          <p className="text-[#828282] font-medium text-normal sm:text-lg my-10 sm:mb-4">
             {event.description}
           </p>
 
@@ -99,12 +99,12 @@ const Events = () => {
           {/* Event Details */}
           {event.details.map((detail, idx) => (
             <div key={idx} className="mb-3 sm:mb-4 mt-6 sm:mt-8 md:mt-10">
-              <h3 className="font-semibold text-black text-lg sm:text-xl">
+              <h3 className="font-semibold text-black text-lg sm:text-xl mb-4">
                 {detail.title}
               </h3>
               <ul className="list-disc pl-5 text-gray-600 space-y-1 sm:space-y-2">
                 {detail.items.map((item, i) => (
-                  <li key={i} className="text-sm sm:text-base">
+                  <li key={i} className="text-lg sm:text-base">
                     {item}
                   </li>
                 ))}
