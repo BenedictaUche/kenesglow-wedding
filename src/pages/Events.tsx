@@ -78,7 +78,7 @@ const Events = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10 font-eb-garamond text-[#515151]">
       {events.map((event, index) => (
-        <div key={index} className="mb-8 sm:mb-10 md:mb-12">
+        <div key={index} className="mb-20 sm:mb-10 md:mb-22">
           {/* Event Date Heading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase mb-4 sm:mb-6 text-black">
             {event.date}
@@ -121,7 +121,7 @@ const Events = () => {
             </div>
           ))}
 
-          {/* Button (if showButton is true) */}
+
           {event.showButton && (
             <div className="flex justify-center mt-4 sm:mt-6">
               <button className="bg-black text-white px-4 py-1.5 sm:px-5 sm:py-2 md:px-6 uppercase text-sm sm:text-base md:text-lg tracking-wider hover:bg-gray-800 transition rounded">
