@@ -79,7 +79,7 @@ const Traditional = () => {
             Accommodation
           </h2>
           <img
-            src="/images/room.jpg"
+            src="/images/acropolis-room.jpg"
             alt="Airport"
             className="w-full max-w-md sm:max-w-lg mx-auto shadow-md mt-2 sm:mt-4 rounded-lg"
           />
