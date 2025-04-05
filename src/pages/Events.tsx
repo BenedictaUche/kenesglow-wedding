@@ -33,7 +33,7 @@ const events = [
       },
       {
         title: "LOCATION",
-        items: ["Acropolis Event Centre, 1001 Obijackson Boulevard Amaranta, Oghalegbu-Okija", "April 22nd, 2025", "12:00 PM", "Your best attire"],
+        items: ["Acropolis Event Centre, 1001 Obijackson Boulevard Amaranta, Oghalegbu-Okija", "April 22nd, 2025", "12:00 PM", "Your best attire - Dress to impress!"],
       },
       {
         title: "Important Notes",
@@ -54,7 +54,7 @@ const events = [
     details: [
       {
         title: "LOCATION",
-        items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire - Dress to impress!"],
+        items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire!"],
       },
 
     ],
