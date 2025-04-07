@@ -13,6 +13,7 @@ const weddingParty: Member[] = [
   { name: "Tito", role: "Groomsman", image: "/images/Tito.jpg" },
   { name: "Tamara", role: "Bridesmaid", image: "/images/tamara.jpg" },
   { name: "Tomi Dahunsi", role: "Bridesmaid", image: "/images/tomi.jpg" },
+  { name: "KC", role: "Groomsman", image: "/images/KC.jpg" },
   { name: "Tinya", role: "Groomsman", image: "/images/Tinya.jpg" },
   { name: "Victoria", role: "Bridesmaid", image: "/images/victoria.jpg" },
   { name: "Odinaka", role: "Bridesmaid", image: "/images/odinaka.jpg" },
