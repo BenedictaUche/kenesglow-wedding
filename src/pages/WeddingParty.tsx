@@ -19,6 +19,7 @@ const weddingParty: Member[] = [
   { name: "Odinaka", role: "Bridesmaid", image: "/images/odinaka.jpg" },
   { name: "Kosi", role: "Groomsman", image: "/images/kosi.jpg" },
   { name: "Uche", role: "Groomsman", image: "/images/uche.jpg" },
+  { name: "Chisom", role: "Bridesmaid", image: "/images/chisom.jpg" },
 ];
 
 const WeddingParty: React.FC = () => {
