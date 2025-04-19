@@ -21,7 +21,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState("traditional");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAfterAccessDate, setIsAfterAccessDate] = useState(false);
-  const [isDDay, setIsDDay] = useState(false);
+  const [_, setIsDDay] = useState(false);
 
   useEffect(() => {
     const accessDate = new Date("2025-04-24").getTime();
@@ -59,13 +59,7 @@ const App = () => {
     <div className="container mx-auto my-5 relative font-abhaya">
       {isAuthenticated || isAfterAccessDate ? (
         <>
-          {isDDay && (
-            <div className="bg-[#B19C7D] text-center py-4 mb-8 animate-pulse text-white flex flex-col justify-center w-1/2 align-middle items-center mx-auto rounded-sm">
-              <h2 className="text-3xl font-bold">🎉 IT'S THE D-DAY! 🎉</h2>
-              <p className="text-xl mt-2">Let's celebrate this special day!</p>
-            </div>
-          )}
-          <Countdown dDay={isDDay}/>
+          <Countdown />
           <Tabs
             activeTab={activeTab}
             setActiveTab={setActiveTab}
