@@ -18,18 +18,23 @@ import WeddingParty from "./pages/WeddingParty";
 import EntryPage from "./pages/EntryPage";
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState("traditional"); // Start with Traditional as default
+  const [activeTab, setActiveTab] = useState("traditional");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAfterAccessDate, setIsAfterAccessDate] = useState(false);
+  const [isDDay, setIsDDay] = useState(false);
 
-  // Check if the current date is after April 25, 2025
   useEffect(() => {
-    const accessDate = new Date("2025-04-25").getTime();
+    const accessDate = new Date("2025-04-24").getTime();
+    const dDayDate = new Date("2025-04-22").getTime();
     const currentDate = new Date().getTime();
+
     setIsAfterAccessDate(currentDate >= accessDate);
+    setIsDDay(
+      currentDate >= dDayDate &&
+      currentDate < dDayDate + 86400000
+    );
   }, []);
 
-  // Only these pages should be accessible
   const allowedTabs = ["traditional", "events", "photos", "wedding-party"];
 
   const renderPage = () => {
@@ -46,14 +51,21 @@ const App = () => {
       case "wedding-party":
         return <WeddingParty />;
       default:
-        return <Traditional />; // Fallback to Traditional
+        return <Traditional />;
     }
   };
+
   return (
-    <div className="container mx-auto my-5 relative">
+    <div className="container mx-auto my-5 relative font-abhaya">
       {isAuthenticated || isAfterAccessDate ? (
         <>
-          <Countdown />
+          {isDDay && (
+            <div className="bg-[#B19C7D] text-center py-4 mb-8 animate-pulse text-white flex flex-col justify-center w-1/2 align-middle items-center mx-auto rounded-sm">
+              <h2 className="text-3xl font-bold">🎉 IT'S THE D-DAY! 🎉</h2>
+              <p className="text-xl mt-2">Let's celebrate this special day!</p>
+            </div>
+          )}
+          <Countdown dDay={isDDay}/>
           <Tabs
             activeTab={activeTab}
             setActiveTab={setActiveTab}

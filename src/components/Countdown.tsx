@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-const Countdown = () => {
+type CountdownProps = {
+  dDay: boolean;
+}
+
+
+const Countdown = ({dDay}: CountdownProps) => {
   const weddingDate = new Date("2025-04-22").getTime();
   const [daysLeft, setDaysLeft] = useState(0);
 
@@ -23,7 +28,9 @@ const Countdown = () => {
         </h1>
         <div className="mt-10 font-eb-garamond">
           <p className="text-xl md:text-2xl tracking-[3px]">APRIL 22, 2025</p>
-          <p className="text-lg md:text-xl mt-2 tracking-[3px]">{daysLeft} DAYS TO GO!</p>
+          <p className="text-lg md:text-xl mt-2 tracking-[3px]">
+            {dDay ? "IT'S THE D-DAY!" : `${daysLeft} DAYS TO GO!`}
+            </p>
         </div>
       </div>
     </div>
