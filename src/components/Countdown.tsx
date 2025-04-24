@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Countdown = () => {
   const weddingDate = new Date("2025-04-19").getTime();
-  const [daysLeft, setDaysLeft] = useState(0);
+  const [_, setDaysLeft] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
