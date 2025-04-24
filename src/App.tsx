@@ -24,8 +24,8 @@ const App = () => {
   const [_, setIsDDay] = useState(false);
 
   useEffect(() => {
-    const accessDate = new Date("2025-04-24").getTime();
-    const dDayDate = new Date("2025-04-22").getTime();
+    const accessDate = new Date("2025-06-09").getTime();
+    const dDayDate = new Date("2025-06-07").getTime();
     const currentDate = new Date().getTime();
 
     setIsAfterAccessDate(currentDate >= accessDate);
