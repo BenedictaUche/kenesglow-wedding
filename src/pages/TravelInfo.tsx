@@ -7,7 +7,7 @@ const TravelInfo = () => {
 
             <p className='text-center tracking-[1px] text-[18px] mb-6 max-w-lg'>
                 Friendly reminder to check your passport's expiration date!{' '}
-                <a href="https://passport.immigration.gov.ng/" className='font-semibold underline'>More Information here</a>
+                <a href="https://france-visas.gouv.fr/en/your-arrival-in-france" className='font-semibold underline'>More Information here</a>
             </p>
 
             <div className='flex flex-col gap-12 w-full'>
@@ -24,7 +24,7 @@ const TravelInfo = () => {
                     <div className='flex justify-center'>
                         <img src="/images/transport.webp" alt="Airport transport" className='w-full max-w-[550px]' />
                     </div>
-                    <p className='tracking-[1px] text-[18px] mt-4'>We recommend ordering a taxi service on Uber, Bolt, or InDrive.</p>
+                    <p className='tracking-[1px] text-[18px] mt-4'>We recommend ordering a shuttle. You can also take the bus or train.</p>
                 </div>
             </div>
         </div>

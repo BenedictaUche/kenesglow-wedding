@@ -37,10 +37,10 @@ const Accommodation = () => {
         <h1 className="text-[34px] font-medium uppercase tracking-[4px] text-center">Booking Note</h1>
         <div className="flex flex-col gap-4 py-6">
           <p className="text-xl font-normal tracking-[1px]">We highly recommend booking your accommodations early to ensure availability</p>
-          <p className="font-semibold text-[18px] tracking-[1px]">**Hotel pricing will be listed in Nigerian Naira**</p>
+          <p className="font-semibold text-[18px] tracking-[1px]">**Hotel pricing will be listed in Euro**</p>
           <div>
             <p className="underline font-semibold text-lg text-[#343434]">Currency Exchange Converter</p>
-            <p className="text-[#828282] text-lg">$1 - Naira 1500</p>
+            <p className="text-[#828282] text-lg">1 Euro - Naira 1821</p>
           </div>
         </div>
       </div>

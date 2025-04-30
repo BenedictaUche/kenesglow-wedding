@@ -1,6 +1,6 @@
 const events = [
   {
-    date: "APRIL 21ST - Welcome Cocktail",
+    date: "JUNE 6TH - Arrival & Welcome Cocktail",
     image: "/images/cocktail1.jpg",
     description:
       "For those arriving before the traditional wedding date, you are specially invited to the welcome cocktail as you settle into the resort.",
@@ -18,7 +18,7 @@ const events = [
     showButton: false,
   },
   {
-    date: "APRIL 22ND - Traditional Wedding Ceremony",
+    date: "JUNE 7TH - Wedding Day & Ceremonies",
     image: "/images/trad-2.jpg",
     description:
       "The moment we have all been waiting for. As we celebrate the couple of the moment Kene and Ugo, we want to ensure all our amazing guests who have joined us for this special occasion have a wonderful experience. We have put together a few details to help you navigate the day.",
@@ -48,20 +48,7 @@ const events = [
     showButton: false,
   },
   {
-    date: "APRIL 22ND - After Party",
-    image: "/images/afterparty.jpg",
-    description: "Let's keep the celebration going! After the traditional ceremony, join us for an unforgettable night of music, dancing, and fun as we party into the night.",
-    details: [
-      {
-        title: "LOCATION",
-        items: ["Acropolis Event Centre, Oghalegbu-Okija. Just a 3-minute walk from the wedding ceremony location", "April 22nd, 2025", "8:00 PM ", "Party Attire!"],
-      },
-
-    ],
-    showButton: false,
-  },
-  {
-    date: "APRIL 23RD - Departure",
+    date: "JUNE 8TH - Farewells",
     image: "/images/events-mountain.png",
     description: "As our wedding celebrations come to a close, we want to take a moment to express our deepest gratitude to each and every one of you for being part of our special day. Your presence, love, and support have made this experience truly unforgettable. Safe travels back home - we wish you smooth journeys and happy memories",
     details: [

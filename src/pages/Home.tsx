@@ -1,5 +1,6 @@
 import HomeHeaderImg from "/images/home-headerImg.png";
 import VenueLocation from "/images/venue-location.png";
+import OutfitTwo from "/images/trad-1.jpg";
 
 const events = [
     {
@@ -29,7 +30,13 @@ const events = [
 const Home = () => {
     return (
         <div className="p-4 font-abhaya">
-            <img src={HomeHeaderImg} alt="Home Header" className="w-full" />
+            <div className="relative w-full h-64 sm:h-80 md:h-[500px] lg:h-[700px] overflow-hidden">
+                <img
+                    src={OutfitTwo}
+                    alt="White Wedding"
+                    className="w-full h-full object-cover object-center"
+                />
+            </div>
             <div className="flex justify-center items-center my-6 text-gray-500 text-center">
                 <p className=" text-lg text-[#828282]">
                     We can't wait to share this special day with our closest family and
@@ -40,7 +47,7 @@ const Home = () => {
 
             <div className="flex flex-col items-center mt-20 gap-4  text-[#130c0e]">
                 <h1 className="font-normal text-4xl uppercase">Wedding Day</h1>
-                <p className="text-[23px] uppercase font-normal">July 6, 2025</p>
+                <p className="text-[23px] uppercase font-normal">June 7, 2025</p>
                 <p className="text-[23px] uppercase font-normal">4:00PM - 2:00AM</p>
                 <div className="mx-auto text-center mt-4 text-[#828282] font-medium text-lg tracking-[1px]">
                     <p>Domaine de Baulieu - Route B14C</p>
@@ -80,9 +87,9 @@ const Home = () => {
                     />
                 </div>
                 <div className="text-center md:text-left">
-                    <p className="text-xl text-[#828282] mb-2">Viola Wink Eventos</p>
+                    <p className="text-xl text-[#828282] mb-2">Domaine de Baulieu</p>
                     <p className="text-xl text-[#828282] underline">
-                        259 Calle 36C Suite, Envigado, Antioquia 055427 Colombia
+                        Route B14C, 13840 ROGNES EN PROVENCE, France
                     </p>
                 </div>
             </div>

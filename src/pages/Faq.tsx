@@ -25,7 +25,7 @@ const Faq = () => {
                 <AccordionItem value="address">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What is the address to the venue?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Voilà Wink Eventos - Carrera 19, Cl. 36C Sur #259 #, Envigado, Antioquia, Colombia
+                    Domaine de Baulieu, Route B14C, 13840 ROGNES EN PROVENCE
                     </AccordionContent>
                 </AccordionItem>
 
@@ -84,12 +84,12 @@ const Faq = () => {
 
                 <h1 className="text-3xl font-medium uppercase tracking-[3px] text-center text-[#515151] my-12">Travel</h1>
                 <AccordionItem value="indoor">
-                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What are the requirements to enter Nigeria ?</AccordionTrigger>
+                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What are the requirements to enter Marseille ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Along with bringing your passport, please fill out your CheckMig online forms before boarding your flights to Colombia and when returning back to the U.S. Your airline will ask you for this.
+                        Along with bringing your passport, please fill out your CheckMig online forms before boarding your flights to France and when returning back to the U.S. Your airline will ask you for this.
                     </AccordionContent>
                 </AccordionItem>
-                <p className="text-center text-lg font-semibold my-16"><a href="https://passport.immigration.gov.ng/" className="underline">https://passport.immigration.gov.ng/</a></p>
+                <p className="text-center text-lg font-semibold my-16"><a href="https://france-visas.gouv.fr/en/your-arrival-in-france" className="underline">https://france-visas.gouv.fr/en/your-arrival-in-france</a></p>
 
 
                 <img
@@ -100,9 +100,9 @@ const Faq = () => {
 
                 <h1 className="text-3xl font-medium uppercase tracking-[3px] r text-[#515151] text-center my-12">Stay</h1>
                 <AccordionItem value="safe">
-                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">Is Lagos safe ?</AccordionTrigger>
+                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">Is Marseille safe ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Lagos is generally a safe city, and is considered one of the safest cities in Colombia. However, as with any major city around the world, it's important to exercise common sense and take necessary precautions.
+                        Marseille is generally a safe city, and is considered one of the safest cities in France. However, as with any major city around the world, it's important to exercise common sense and take necessary precautions.
                     </AccordionContent>
                 </AccordionItem>
 
@@ -114,9 +114,9 @@ const Faq = () => {
                 </AccordionItem>
 
                 <AccordionItem value="cruise">
-                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">How do we get around Lagos ?</AccordionTrigger>
+                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">How do we get around Marseille ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        We recommend Uber. Drivers may request you to sit in the front seat which is normal in Colombia. You can also ask the hotel, a restaurant or a security guard to call a cab for you.
+                        We recommend Uber. Drivers may request you to sit in the front seat which is normal in France. You can also ask the hotel, a restaurant or a security guard to call a cab for you.
                     </AccordionContent>
                 </AccordionItem>
 
