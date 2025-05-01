@@ -1,4 +1,4 @@
-import HomeHeaderImg from "/images/home-headerImg.png";
+// import HomeHeaderImg from "/images/home-headerImg.png";
 import VenueLocation from "/images/venue-location.png";
 import OutfitTwo from "/images/trad-1.jpg";
 
