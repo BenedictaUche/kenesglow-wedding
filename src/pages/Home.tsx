@@ -1,5 +1,5 @@
 // import HomeHeaderImg from "/images/home-headerImg.png";
-import VenueLocation from "/images/venue-location.png";
+import VenueLocation from "/images/DomainedeBaulieu.jpg";
 import OutfitTwo from "/images/trad-1.jpg";
 
 const events = [

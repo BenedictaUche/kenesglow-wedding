@@ -5,8 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { guests } from "@/lib/guests";
-
-
+import { sendRsvpEmail } from "@/lib/sendRsvpEmail";
 
 type Guest = {
   name: string;
@@ -32,6 +31,10 @@ const Rsvp = () => {
     attending: true,
   });
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  console.log("RSVP Data:", rsvpData); // Debugging line to check the RSVP data
 
   const steps = [
     "Find Invitation",
@@ -45,31 +48,33 @@ const Rsvp = () => {
   const mealOptions = [
     {
       id: "beef",
-      label: "Lomo de Res / Beef Tenderloin",
-      description: "Lomo de Res a la Parrilla con Chimichurri y Puré de Arracacha Beef Tenderloin with Chimichurri Sauce and Arracacha Purée",
+      label: "Beef Tenderloin",
+      description: "Grass-fed beef tenderloin with truffle-infused chimichurri and arracacha purée",
+      winePairing: "Paired with Château Lafite Rothschild 2010"
     },
     {
       id: "chicken",
-      label: "Pollo Relleno/Bacon-Wrapped Chicken",
-      description: "Pollo Relleno de Espinaca y Pesto de Tomates Secos Cremoso, Envuelto en Tocineta con Papas Crocantes y Broccolini",
+      label: "Bacon-Wrapped Chicken",
+      description: "Organic chicken stuffed with heirloom tomatoes and pesto, wrapped in artisanal bacon",
+      winePairing: "Paired with Domaine Leflaive Puligny-Montrachet 2018"
     },
     {
       id: "cochinita",
       label: "Cochinita Pibil",
-      description: "Cochinita Pibil con Arroz Cremoso / Cochinita Pibil with Creamy Rice",
+      description: "Heritage pork slow-roasted in banana leaves with achiote and sour orange",
+      winePairing: "Paired with Vega Sicilia Unico 2012"
     },
   ];
 
   const arrivalDates = [
-    { id: "july3", date: "July 3/Julio 3", day: "Wednesday/Miércoles" },
-    { id: "july4", date: "July 4/Julio 4", day: "Thursday/Jueves" },
-    { id: "july5", date: "July 5/Julio 5", day: "Friday/Viernes" },
+    { id: "june4", date: "Wednesday, June 4", location: "Domaine de Baulieu, Marseille" },
+    { id: "june5", date: "Thursday, June 5", location: "Domaine de Baulieu, Marseille" },
+    { id: "june6", date: "Friday, June 6", location: "Domaine de Baulieu, Marseille" },
   ];
 
   const handleSearch = () => {
     if (!searchName.trim()) return;
 
-    // Search in our simplified guest list
     const matches = guests.filter(guest =>
       guest.name.toLowerCase().includes(searchName.toLowerCase()) ||
       (guest.partner && guest.partner.toLowerCase().includes(searchName.toLowerCase()))
@@ -79,7 +84,6 @@ const Rsvp = () => {
       setFoundGuests(matches);
       setStep(2);
     } else {
-      // For demo purposes, if no match found, show all guests
       setFoundGuests(guests);
       setStep(2);
     }
@@ -99,6 +103,7 @@ const Rsvp = () => {
     setStep(4);
   };
 
+
   const handleArrivalSelect = (date: string) => {
     setRsvpData(prev => ({ ...prev, arrivalDate: date }));
     setStep(5);
@@ -106,121 +111,159 @@ const Rsvp = () => {
 
   const handleDietarySubmit = (restrictions: string) => {
     setRsvpData(prev => ({ ...prev, dietaryRestrictions: restrictions }));
-    setStep(7); // Changed from setStep(6) to setStep(7)
+    setStep(7);
   };
 
   const handleSubmitRSVP = async () => {
+    setIsSubmitting(true);
+    setSubmitError('');
+
     try {
-      // Save to Firebase or local JSON
-      // await saveRSVP({ ...rsvpData, email });
+      const emailSent = await sendRsvpEmail(rsvpData, email);
 
-      // Send email to couple
-      // await sendEmailNotification({ ...rsvpData, email });
+      if (!emailSent) {
+        throw new Error("Email failed to send");
+      }
 
-      alert("RSVP submitted successfully!");
-      // Reset form or redirect
+      // Success handling
+      alert("Your RSVP has been gracefully received. Thank you!");
+
     } catch (error) {
       console.error("Error submitting RSVP:", error);
-      alert("There was an error submitting your RSVP. Please try again.");
+      setSubmitError("We encountered an issue submitting your RSVP. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
 
   const renderStep = () => {
     switch (step) {
       case 1:
         return (
-          <div className="text-center font-abhaya">
-            <p className="mb-6 text-xl">
-              If you're responding for you and a guest (or your family)
+          <div className="text-center font-serif">
+            <h1 className="text-3xl font-light mb-8 tracking-wider">RSVP</h1>
+            <p className="mb-8 text-lg text-gray-600">
+              Kindly locate your invitation to begin
             </p>
-            <Input
-              type="text"
-              placeholder="FIND YOUR INVITATION"
-              value={searchName}
-              onChange={(e) => setSearchName(e.target.value)}
-              className="w-full max-w-md mb-4 p-4 text-center text-lg"
-            />
+            <div className="relative max-w-md mx-auto">
+              <Input
+                type="text"
+                placeholder="Enter your name"
+                value={searchName}
+                onChange={(e) => setSearchName(e.target.value)}
+                className="w-full mb-6 p-4 text-center text-lg border-b-2 border-gray-300 focus:border-black focus:outline-none bg-transparent"
+                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+              />
+              <svg
+                className="absolute right-4 top-4 h-5 w-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
             <Button
               onClick={handleSearch}
-              className="bg-black text-white px-8 py-4 uppercase text-lg"
+              className="bg-black text-white px-10 py-4 uppercase tracking-widest text-sm font-light hover:bg-gray-800 transition-colors duration-300"
             >
-              Search
+              Find Invitation
             </Button>
           </div>
         );
       case 2:
         return (
           <div className="text-center">
-            <h1 className="text-3xl font-bold mb-6">RSVP</h1>
-            <p className="mb-6 text-xl">
-              We've found more than one match in the guest list.
-              Please select your name from the list below.
+            <h1 className="text-3xl font-light mb-8 tracking-wider">Your Invitation</h1>
+            <p className="mb-8 text-lg text-gray-600">
+              We found these matches in our guest registry
             </p>
-            <RadioGroup className="space-y-4">
+            <div className="max-w-md mx-auto space-y-4">
               {foundGuests.map((guest, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <RadioGroupItem
-                    value={guest.name}
-                    id={`guest-${index}`}
-                    onClick={() => handleGuestSelect(guest)}
-                  />
-                  <Label htmlFor={`guest-${index}`}>
+                <div
+                  key={index}
+                  className="p-4 border border-gray-200 hover:border-black cursor-pointer transition-colors duration-300"
+                  onClick={() => handleGuestSelect(guest)}
+                >
+                  <p className="text-lg">
                     {guest.partner ? `${guest.name} & ${guest.partner}` : guest.name}
-                  </Label>
+                  </p>
                 </div>
               ))}
-            </RadioGroup>
+            </div>
           </div>
         );
       case 3:
         return (
           <div className="text-center">
-            <p className="mb-2 text-xl">Saturday, July 06, 2024 at 04:00 PM</p>
-            <p className="mb-2">Volla - Wink Eventos</p>
-            <p className="mb-4">Dark Suit and Tie / Long Dress</p>
-            <p className="font-bold">{selectedGuest?.name}</p>
-            <Button
-              onClick={() => setStep(4)}
-              className="mt-6 bg-black text-white px-8 py-4 uppercase text-lg"
-            >
-              Continue
-            </Button>
+            <h1 className="text-3xl font-light mb-6 tracking-wider">Wedding Details</h1>
+            <div className="max-w-md mx-auto space-y-6">
+              <div className="border-b border-gray-200 pb-6">
+                <p className="text-xl mb-1">Saturday, 7th of June</p>
+                <p className="text-lg">2025</p>
+              </div>
+              <div className="border-b border-gray-200 pb-6">
+                <p className="text-xl mb-2">Two O'Clock in the Afternoon</p>
+                <p className="text-lg">Domaine de Baulieu</p>
+                <p className="text-gray-600">Marseille, France</p>
+              </div>
+              <div className="pb-6">
+                <p className="text-lg mb-2">Black Tie Preferred</p>
+                <p className="text-gray-600">Dark Suit & Tie or Formal Evening Attire</p>
+              </div>
+              <div className="pt-6">
+                <p className="text-xl font-medium">{selectedGuest?.name}</p>
+              </div>
+              <Button
+                onClick={() => setStep(4)}
+                className="bg-black text-white px-10 py-4 uppercase tracking-widest text-sm font-light mt-8"
+              >
+                Continue
+              </Button>
+            </div>
           </div>
         );
       case 4:
         return (
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-6">Meal Preference</h1>
-            <p className="mb-6">¿Cuál es su preferencia de comida?</p>
-            <RadioGroup className="space-y-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <h1 className="text-3xl font-light mb-8 tracking-wider">Dinner Selection</h1>
+            <p className="mb-8 text-lg text-gray-600">Please indicate your preferred entrée</p>
+            <div className="space-y-8">
               {mealOptions.map((meal) => (
-                <div key={meal.id} className="text-left">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem
-                      value={meal.id}
-                      id={meal.id}
-                      onClick={() => handleMealSelect(meal.label)}
-                    />
-                    <Label htmlFor={meal.id} className="font-bold">
-                      {meal.label}
-                    </Label>
+                <div
+                  key={meal.id}
+                  className={`p-6 border cursor-pointer transition-all duration-300 ${rsvpData.mealPreference === meal.label ? 'border-black' : 'border-gray-200 hover:border-gray-400'}`}
+                  onClick={() => handleMealSelect(meal.label)}
+                >
+                  <div className="flex items-start">
+                    <div className={`w-6 h-6 rounded-full border flex items-center justify-center mr-4 mt-1 ${rsvpData.mealPreference === meal.label ? 'border-black' : 'border-gray-300'}`}>
+                      {rsvpData.mealPreference === meal.label && (
+                        <div className="w-3 h-3 rounded-full bg-black"></div>
+                      )}
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xl font-medium mb-2">{meal.label}</h3>
+                      <p className="text-gray-600 mb-2">{meal.description}</p>
+                      <p className="text-sm text-gray-500 italic">{meal.winePairing}</p>
+                    </div>
                   </div>
-                  <p className="ml-6 text-sm text-gray-600">{meal.description}</p>
                 </div>
               ))}
-            </RadioGroup>
-            <div className="mt-8 flex justify-between">
+            </div>
+            <div className="mt-12 flex justify-between max-w-md mx-auto">
               <Button
                 variant="outline"
                 onClick={() => setStep(step - 1)}
-                className="px-6 py-3"
+                className="px-8 py-3 border-black text-black hover:bg-gray-50"
               >
                 Back
               </Button>
               <Button
                 onClick={() => setStep(5)}
                 disabled={!rsvpData.mealPreference}
-                className="bg-black text-white px-6 py-3"
+                className="bg-black text-white px-8 py-3 uppercase tracking-widest text-sm font-light disabled:opacity-50"
               >
                 Continue
               </Button>
@@ -229,36 +272,42 @@ const Rsvp = () => {
         );
       case 5:
         return (
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-6">Arrival Date</h1>
-            <p className="mb-6">¿Qué día llega a Colombia?</p>
-            <p className="font-bold mb-4">{selectedGuest?.name}:</p>
-            <RadioGroup className="space-y-4">
+          <div className="text-center max-w-2xl mx-auto">
+            <h1 className="text-3xl font-light mb-8 tracking-wider">Arrival Details</h1>
+            <p className="mb-8 text-lg text-gray-600">When will you be joining us in Marseille?</p>
+            <div className="space-y-4">
               {arrivalDates.map((date) => (
-                <div key={date.id} className="flex items-center space-x-2">
-                  <RadioGroupItem
-                    value={date.id}
-                    id={date.id}
-                    onClick={() => handleArrivalSelect(`${date.date} (${date.day})`)}
-                  />
-                  <Label htmlFor={date.id}>
-                    {date.date} <span className="text-gray-600">{date.day}</span>
-                  </Label>
+                <div
+                  key={date.id}
+                  className={`p-6 border cursor-pointer transition-all duration-300 ${rsvpData.arrivalDate?.includes(date.date) ? 'border-black' : 'border-gray-200 hover:border-gray-400'}`}
+                  onClick={() => handleArrivalSelect(`${date.date} at ${date.location}`)}
+                >
+                  <div className="flex items-start">
+                    <div className={`w-6 h-6 rounded-full border flex items-center justify-center mr-4 mt-1 ${rsvpData.arrivalDate?.includes(date.date) ? 'border-black' : 'border-gray-300'}`}>
+                      {rsvpData.arrivalDate?.includes(date.date) && (
+                        <div className="w-3 h-3 rounded-full bg-black"></div>
+                      )}
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xl font-medium mb-1">{date.date}</h3>
+                      <p className="text-gray-600">{date.location}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
-            </RadioGroup>
-            <div className="mt-8 flex justify-between">
+            </div>
+            <div className="mt-12 flex justify-between max-w-md mx-auto">
               <Button
                 variant="outline"
                 onClick={() => setStep(step - 1)}
-                className="px-6 py-3"
+                className="px-8 py-3 border-black text-black hover:bg-gray-50"
               >
                 Back
               </Button>
               <Button
                 onClick={() => setStep(6)}
                 disabled={!rsvpData.arrivalDate}
-                className="bg-black text-white px-6 py-3"
+                className="bg-black text-white px-8 py-3 uppercase tracking-widest text-sm font-light disabled:opacity-50"
               >
                 Continue
               </Button>
@@ -267,34 +316,38 @@ const Rsvp = () => {
         );
       case 6:
         return (
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-6">Dietary Restrictions</h1>
-            <p className="mb-6">Do you have any dietary restrictions or allergies?</p>
-            <p className="mb-6">¿Alergias/intolerancias?</p>
-            <Input
-              type="text"
-              placeholder="Please specify any dietary needs"
-              value={rsvpData.dietaryRestrictions || ""}
-              onChange={(e) => setRsvpData(prev => ({
-                ...prev,
-                dietaryRestrictions: e.target.value
-              }))}
-              className="w-full max-w-md mb-6 p-4"
-            />
-            <div className="mt-8 flex justify-between">
+          <div className="text-center max-w-2xl mx-auto">
+            <h1 className="text-3xl font-light mb-8 tracking-wider">Dietary Considerations</h1>
+            <p className="mb-8 text-lg text-gray-600">Please share any dietary restrictions or allergies</p>
+            <div className="max-w-md mx-auto">
+              <Input
+                type="text"
+                placeholder="e.g., Vegetarian, Gluten-Free, Nut Allergy"
+                value={rsvpData.dietaryRestrictions || ""}
+                onChange={(e) => setRsvpData(prev => ({
+                  ...prev,
+                  dietaryRestrictions: e.target.value
+                }))}
+                className="w-full mb-6 p-4 text-center border-b-2 border-gray-300 focus:border-black focus:outline-none bg-transparent"
+              />
+              <p className="text-sm text-gray-500 mb-8">
+                Our chef will personally accommodate your needs
+              </p>
+            </div>
+            <div className="mt-8 flex justify-between max-w-md mx-auto">
               <Button
                 variant="outline"
                 onClick={() => setStep(step - 1)}
-                className="px-6 py-3"
+                className="px-8 py-3 border-black text-black hover:bg-gray-50"
               >
                 Back
               </Button>
               <Button
                 onClick={() => {
                   handleDietarySubmit(rsvpData.dietaryRestrictions || "");
-                  setStep(7); // Add this line to ensure step advancement
+                  setStep(7);
                 }}
-                className="bg-black text-white px-6 py-3"
+                className="bg-black text-white px-8 py-3 uppercase tracking-widest text-sm font-light"
               >
                 Continue
               </Button>
@@ -303,42 +356,52 @@ const Rsvp = () => {
         );
       case 7:
         return (
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-6">Confirm RSVP</h1>
-            <p className="mb-6">Send your RSVP to Kene & Ugo's Email</p>
-
-            <div className="mb-6 p-4 bg-gray-50 rounded-lg text-left max-w-md mx-auto">
-              <h3 className="font-bold mb-2">RSVP Summary:</h3>
-              <p>Name: {rsvpData.guestName}</p>
-              <p>Meal: {rsvpData.mealPreference}</p>
-              <p>Arrival: {rsvpData.arrivalDate}</p>
-              {rsvpData.dietaryRestrictions && (
-                <p>Dietary Needs: {rsvpData.dietaryRestrictions}</p>
-              )}
-            </div>
-
-            <div className="mb-6">
-              <Input
-                type="email"
-                placeholder="Email for confirmation"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full max-w-md mb-4 p-4"
-              />
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="email-confirm" className="w-4 h-4" />
-                <Label htmlFor="email-confirm">
-                  Send me an RSVP confirmation by email
-                </Label>
+          <div className="text-center max-w-2xl mx-auto">
+            <h1 className="text-3xl font-light mb-8 tracking-wider">Confirm Your RSVP</h1>
+            <div className="max-w-md mx-auto text-left mb-10">
+              <div className="border-b border-gray-200 pb-6 mb-6">
+                <h3 className="text-xl font-medium mb-4">Your Details</h3>
+                <p className="mb-2"><span className="text-gray-600">Name:</span> {rsvpData.guestName}</p>
+                <p className="mb-2"><span className="text-gray-600">Meal:</span> {rsvpData.mealPreference}</p>
+                <p className="mb-2"><span className="text-gray-600">Arrival:</span> {rsvpData.arrivalDate}</p>
+                {rsvpData.dietaryRestrictions && (
+                  <p><span className="text-gray-600">Dietary Notes:</span> {rsvpData.dietaryRestrictions}</p>
+                )}
+              </div>
+              <div className="mb-8">
+                <Label className="block text-gray-700 mb-2">Email for Confirmation</Label>
+                <Input
+                  type="email"
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-4 border border-gray-300 focus:border-black"
+                />
+                <div className="flex items-center mt-3">
+                  <input
+                    type="checkbox"
+                    id="email-confirm"
+                    className="w-4 h-4 border-gray-300 rounded focus:ring-black"
+                  />
+                  <Label htmlFor="email-confirm" className="ml-2 text-gray-700">
+                    Send me a confirmation
+                  </Label>
+                </div>
               </div>
             </div>
-
+            {submitError && (
+              <p className="text-red-500 mb-4">{submitError}</p>
+            )}
             <Button
               onClick={handleSubmitRSVP}
-              className="bg-black text-white px-8 py-4 uppercase text-lg"
+              disabled={isSubmitting}
+              className="bg-black text-white px-10 py-4 uppercase tracking-widest text-sm font-light mb-4"
             >
-              Send RSVP
+              {isSubmitting ? 'Sending...' : 'Submit RSVP'}
             </Button>
+            <p className="text-sm text-gray-500">
+              Your response will be sent to the wedding planners
+            </p>
           </div>
         );
       default:
@@ -347,13 +410,26 @@ const Rsvp = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 font-sans">
-      <div className="mb-8">
-        <Progress value={(step / steps.length) * 100} className="h-2" />
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 font-serif bg-white">
+      <div className="w-full max-w-3xl">
+        <div className="mb-12">
+          <Progress
+            value={(step / steps.length) * 100}
+            className="h-[1px] bg-gray-200 [&>div]:bg-black [&>div]:h-[1px]"
+          />
+          <div className="flex justify-between mt-2 text-xs text-gray-500 tracking-widest">
+            {steps.map((stepName, index) => (
+              <span key={index} className={step > index + 1 ? 'text-black' : ''}>
+                {stepName}
+              </span>
+            ))}
+          </div>
+        </div>
 
+        <div className="bg-white p-8 md:p-12">
+          {renderStep()}
+        </div>
       </div>
-
-      {renderStep()}
     </div>
   );
 };
