@@ -10,7 +10,7 @@ import Attire from "./pages/Attire";
 import Faq from "./pages/Faq";
 import Photos from "./pages/Photos";
 import Registry from "./pages/Registry";
-import Rsvp from "./pages/Rsvp";
+
 import Marseille from "./pages/Marseille";
 import WeddingParty from "./pages/WeddingParty";
 import Footer from "./components/Footer";
