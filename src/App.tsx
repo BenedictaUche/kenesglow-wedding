@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Tabs from "./components/Tabs";
 import Home from "./pages/Home";
 import Events from "./pages/Events";
@@ -14,11 +14,30 @@ import Rsvp from "./pages/Rsvp";
 import Marseille from "./pages/Marseille";
 import WeddingParty from "./pages/WeddingParty";
 import Footer from "./components/Footer";
+import EntryPage from "./pages/EntryPage";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("home");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAfterAccessDate, setIsAfterAccessDate] = useState(false);
+  const [_, setIsDDay] = useState(false);
+
+  useEffect(() => {
+    const accessDate = new Date("2025-06-09").getTime();
+    const dDayDate = new Date("2025-06-07").getTime();
+    const currentDate = new Date().getTime();
+
+    setIsAfterAccessDate(currentDate >= accessDate);
+    setIsDDay(
+      currentDate >= dDayDate &&
+      currentDate < dDayDate + 86400000
+    );
+  }, []);
 
   const renderPage = () => {
+    if (!isAuthenticated && !isAfterAccessDate) {
+      return <EntryPage onCodeSubmit={(_code) => setIsAuthenticated(true)} />;
+    }
     switch (activeTab) {
       case "home":
         return <Home />;
@@ -40,8 +59,6 @@ const App = () => {
         return <Registry />;
       case "wedding-party":
         return <WeddingParty />;
-      case "rsvp":
-        return <Rsvp />;
       default:
         return <Home />;
     }
@@ -49,10 +66,19 @@ const App = () => {
 
   return (
     <div className="container mx-auto my-5 relative">
-      <Countdown />
-      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main className="mt-20">{renderPage()}</main>
-      <Footer />
+      {isAuthenticated || isAfterAccessDate ? (
+        <>
+          <Countdown />
+          <Tabs
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+          <main className="mt-20">{renderPage()}</main>
+          <Footer />
+        </>
+      ) : (
+        renderPage()
+      )}
     </div>
   );
 };

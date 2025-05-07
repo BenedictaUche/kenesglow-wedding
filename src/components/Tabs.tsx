@@ -20,10 +20,19 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
     { id: "photos", label: "Photos" },
     { id: "attire", label: "Attire" },
     { id: "qa", label: "Q + A" },
-    { id: "things-to-do", label: "Things to Do" },
+    // { id: "things-to-do", label: "Things to Do" },
     { id: "registry", label: "Registry" },
-    { id: "rsvp", label: "RSVP" },
+    { id: "rsvp", label: "RSVP", external: "https://kene-ugo-wedding.crd.co" },
   ];
+
+  const handleTabClick = (tab: { id: string; external?: string }) => {
+    if (tab.external) {
+      window.open(tab.external, "_blank");
+      // Or use window.location.href = tab.external to open in same tab
+      return;
+    }
+    setActiveTab(tab.id);
+  };
 
   return (
     <nav className="font-abhaya text-[#130c0e] text-lg tracking-[2px]">
@@ -32,7 +41,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
         <button
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
-            document.body.style.overflow = isMobileMenuOpen ? "auto" : "hidden"; // Prevent scrolling when menu is open
+            document.body.style.overflow = isMobileMenuOpen ? "auto" : "hidden";
           }}
           className="text-gray-700 focus:outline-none md:hidden z-50 absolute top-0 right-5"
         >
@@ -62,9 +71,15 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
               <button
                 key={tab.id}
                 onClick={() => {
+                  if (tab.external) {
+                    window.open(tab.external, "_blank");
+                    setIsMobileMenuOpen(false);
+                    document.body.style.overflow = "auto";
+                    return;
+                  }
                   setActiveTab(tab.id);
                   setIsMobileMenuOpen(false);
-                  document.body.style.overflow = "auto"; // Restore scrolling
+                  document.body.style.overflow = "auto";
                 }}
                 className={`block text-center py-2 font-eb-garamond text-2xl transition-all ${
                   activeTab === tab.id ? "border-b-2 border-black text-black" : "text-gray-700"
@@ -82,7 +97,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => handleTabClick(tab)}
             className={`px-4 py-2 font-eb-garamond text-2xl ${
               activeTab === tab.id ? "border-b-2 border-black text-black" : "text-gray-700"
             }`}

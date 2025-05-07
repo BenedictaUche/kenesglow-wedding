@@ -31,7 +31,7 @@ export const sendRsvpEmail = async (rsvpData: RSVPData, guestEmail?: string) => 
       EMAILJS_CONFIG.USER_ID
     );
 
-    // Optional: Send confirmation to guest if they provided email
+// Send confirmation to guest if they provided email
     if (guestEmail) {
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,

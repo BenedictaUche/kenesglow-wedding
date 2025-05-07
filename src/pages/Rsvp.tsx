@@ -156,7 +156,7 @@ const Rsvp = () => {
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
               />
               <svg
-                className="absolute right-4 top-4 h-5 w-5 text-gray-400"
+                className="absolute right-4 top-2 bottom-0 h-5 w-5 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
