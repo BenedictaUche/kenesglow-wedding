@@ -229,7 +229,7 @@ const Accommodation = () => {
 
               <div className="flex justify-center mt-6 md:mt-8">
                 <Button
-                  className="bg-black hover:bg-gray-800 text-white border border-black px-4 sm:px-6 md:px-8 py-3 md:py-6 flex items-center justify-center gap-2 tracking-wider uppercase text-xs md:text-sm rounded-none"
+                  className="bg-black hover:bg-gray-800 text-white border border-black px-4 sm:px-6 md:px-8 py-3 md:py-6 flex items-center justify-center gap-2 tracking-wider uppercase text-xs md:text-sm rounded-none cursor-pointer"
                   onClick={() => window.open("https://www.airbnb.com", "_blank")}
                 >
                   <ExternalLink size={16} />

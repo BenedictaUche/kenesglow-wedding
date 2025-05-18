@@ -4,14 +4,13 @@ const events = [
     image: "/images/cocktail1.jpg",
     description:
       "For those arriving before the traditional wedding date, you are specially invited to the welcome cocktail as you settle into the resort.",
-    deadline: "**Kindly book your room at the resort as early as the 8th of April as there is limited availability. **",
+    deadline: "**Kindly book your room at the resort as early as the 18th of May as there is limited availability. **",
     details: [
       {
         title: "Guide",
         items: [
-          "Please ensure your flight has been booked to Asaba airport.",
-          "Notify the coordinator assigned to ensure arrangements are made for pickup from the airport to the resort; accompanied by security.",
-          "Please book your room at the resort or any other alternative hotel arrangements close to the event venue.",
+          "Please ensure your flight has been booked to Marseille airport.",
+          "Notify the coordinators assigned to ensure arrangements are made for pickup from the selected hotels.",
         ],
       },
     ],
@@ -27,7 +26,6 @@ const events = [
         title: "Guide",
         items: [
           "Kindly be at the venue on or before 2:30pm on the day to ensure you are well received and  taken care of. ",
-          "For those staying at the resort, although it is walking distance as well, transportation to the venue will be provided.",
           "For those coming on the day kindly inform the coordinator to ensure all pick-up arrangements are made. Thank you!",
         ],
       },
@@ -53,7 +51,7 @@ const events = [
     description: "As our wedding celebrations come to a close, we want to take a moment to express our deepest gratitude to each and every one of you for being part of our special day. Your presence, love, and support have made this experience truly unforgettable. Safe travels back home - we wish you smooth journeys and happy memories",
     details: [
       {
-        title: "Thank You!",
+        title: "Thank You/Merci",
         items: [],
       },
     ],
@@ -64,7 +62,6 @@ const events = [
 const Events = () => {
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 font-abhaya text-slate-800">
-      {/* Elegant header */}
       <div className="text-center mb-20">
         <h1 className="text-4xl md:text-5xl font-light tracking-widest">THE CELEBRATIONS</h1>
         <div className="flex justify-center mt-6">
@@ -74,7 +71,6 @@ const Events = () => {
 
       {events.map((event, index) => (
         <div key={index} className="mb-32">
-          {/* Timeline marker for visual elegance */}
           <div className="flex items-center mb-8">
             <div className="w-3 h-3 rounded-full bg-amber-300"></div>
             <div className="h-px w-16 bg-amber-200 ml-2"></div>
@@ -85,7 +81,6 @@ const Events = () => {
             {event.date}
           </h2>
 
-          {/* Event Image with overlay */}
           <div className="relative w-full h-56 sm:h-72 md:h-96 lg:h-[550px] mb-12 overflow-hidden">
             <img
               src={event.image}
@@ -95,20 +90,17 @@ const Events = () => {
             <div className="absolute inset-0 bg-black opacity-10"></div>
           </div>
 
-          {/* Event Description */}
           <div className="max-w-3xl mx-auto">
             <p className="text-lg md:text-xl tracking-wider leading-relaxed text-center mb-16">
               {event.description}
             </p>
 
-            {/* Deadline (if exists) */}
             {event.deadline && (
               <p className="text-center text-xl font-medium mb-16 border-y border-amber-200 py-6">
-                Kindly book your room at the resort as early as the 8th of April as there is limited availability.
+                Kindly book your room at the resort as early as the 18th of May as there is limited availability.
               </p>
             )}
 
-            {/* Event Details */}
             {event.details.map((detail, idx) => (
               <div key={idx} className="mb-12">
                 <h3 className="text-xl md:text-2xl font-light tracking-[3px] mb-8 text-center">
@@ -142,7 +134,6 @@ const Events = () => {
             )}
           </div>
 
-          {/* Elegant divider between events */}
           {index < events.length - 1 && (
             <div className="flex justify-center mt-20">
               <div className="w-32 h-px bg-amber-200"></div>
@@ -151,7 +142,6 @@ const Events = () => {
         </div>
       ))}
 
-      {/* Final elegant divider */}
       <div className="flex justify-center mt-16">
         <div className="w-24 h-px bg-amber-300"></div>
       </div>
