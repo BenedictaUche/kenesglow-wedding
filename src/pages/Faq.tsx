@@ -33,7 +33,7 @@ const Faq = () => {
                 <AccordionItem value="arrival-time">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What time should I arrive?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Please arrive no later than <strong>3:50 PM</strong> or you will miss the ceremony.
+                        Please arrive no later than <strong>2:30 PM</strong> or you will miss the ceremony.
                     </AccordionContent>
                 </AccordionItem>
 
@@ -41,14 +41,14 @@ const Faq = () => {
                 <AccordionItem value="transportation">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">Will transportation be provided?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Yes! Transportation will be provided to and from the wedding venue. Pickup will be at <strong>Lobby at 3:45 PM</strong>.
+                    Shuttles will be organized from hotel to venue and from venue to hotel for <b>Auberge La Coste, Fonscolombe, Hotel Set & Spa and Aquabella</b>
                     </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="attire">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What is the attire?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Formal Attire (Black tie optional). Ladies can wear long elegant dresses or elevated cocktail dresses. We love flowing ruffles and vibrant colors. Kindly refrain from wearing white. Gentlemen should wear a formal dark suit with a tie. Bow tie reserved for the groom.
+                        Formal Attire (Black tie). Ladies can wear long elegant dresses or elevated cocktail dresses. Gentlemen should wear a formal dark suit with a tie.
                         <br />
                         <br />
                         <a href="" className="underline">Dress code inspiration</a>
@@ -72,7 +72,7 @@ const Faq = () => {
                 <AccordionItem value="indoor">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">Is the wedding indoors or outdoors ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Our ceremony and cocktail hour will be held outside (weather permitting). The reception will be held inside.
+                        Our ceremony an reception will be held outside.
                     </AccordionContent>
                 </AccordionItem>
 
@@ -86,7 +86,7 @@ const Faq = () => {
                 <AccordionItem value="indoor">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What are the requirements to enter Marseille ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Along with bringing your passport, please fill out your CheckMig online forms before boarding your flights to France and when returning back to the U.S. Your airline will ask you for this.
+                        Along with bringing your passport, please fill out your CheckMig online forms before boarding your flights to France and when returning back to your country. Your airline will ask you for this.
                     </AccordionContent>
                 </AccordionItem>
                 <p className="text-center text-lg font-semibold my-16"><a href="https://france-visas.gouv.fr/en/your-arrival-in-france" className="underline">https://france-visas.gouv.fr/en/your-arrival-in-france</a></p>
@@ -106,12 +106,6 @@ const Faq = () => {
                     </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="room">
-                    <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">Will there be a room block ?</AccordionTrigger>
-                    <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Yes! We have a block of rooms for guests set up at Novotel and Click Clack. Please head to the travel tab for more details.
-                    </AccordionContent>
-                </AccordionItem>
 
                 <AccordionItem value="cruise">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">How do we get around Marseille ?</AccordionTrigger>
@@ -123,7 +117,7 @@ const Faq = () => {
                 <AccordionItem value="weather">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">What will the weather be like ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Around high 70s during the day and mid 50s in the evening
+                        Around high 24 degree celsius during the day
                     </AccordionContent>
                 </AccordionItem>
 
@@ -137,7 +131,7 @@ const Faq = () => {
                 <AccordionItem value="accessible">
                     <AccordionTrigger className="text-[23px] uppercase tracking-[3px] ">Is Wi-Fi easily accessible ?</AccordionTrigger>
                     <AccordionContent className="text-lg font-normal tracking-[1px]">
-                        Wi-Fi is [3px] ly available in malls and most accommodations. T-Mobile users may have free 4G access, while other carriers may require a daily fee.
+                        Wi-Fi is mostly available in malls and most accommodations. T-Mobile users may have free 4G access, while other carriers may require a daily fee.
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>

@@ -48,7 +48,7 @@ const Home = () => {
             <div className="flex flex-col items-center mt-20 gap-4  text-[#130c0e]">
                 <h1 className="font-normal text-4xl uppercase">Wedding Day</h1>
                 <p className="text-[23px] uppercase font-normal">June 7, 2025</p>
-                <p className="text-[23px] uppercase font-normal">4:00PM - 2:00AM</p>
+                <p className="text-[23px] uppercase font-normal">2:30 PM</p>
                 <div className="mx-auto text-center mt-4 text-[#828282] font-medium text-lg tracking-[1px]">
                     <p>Domaine de Baulieu - Route B14C</p>
                     <p>13840 ROGNES EN PROVENCE</p>
@@ -87,7 +87,7 @@ const Home = () => {
                     />
                 </div>
                 <div className="text-center md:text-left">
-                    <p className="text-xl text-[#828282] mb-2">Domaine de Baulieu</p>
+                    <p className="text-xl text-[#828282] mb-2">Villa Baulieu</p>
                     <p className="text-xl text-[#828282] underline">
                         Route B14C, 13840 ROGNES EN PROVENCE, France
                     </p>

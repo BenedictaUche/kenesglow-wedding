@@ -26,14 +26,14 @@ const events = [
       {
         title: "Guide",
         items: [
-          "Kindly be at the venue on or before 12pm on the day to ensure you are well received and  taken care of. ",
+          "Kindly be at the venue on or before 2:30pm on the day to ensure you are well received and  taken care of. ",
           "For those staying at the resort, although it is walking distance as well, transportation to the venue will be provided.",
           "For those coming on the day kindly inform the coordinator to ensure all pick-up arrangements are made. Thank you!",
         ],
       },
       {
         title: "LOCATION",
-        items: ["Acropolis Event Centre, 1001 Obijackson Boulevard Amaranta, Oghalegbu-Okija", "April 22nd, 2025", "12:00 PM", "Your best attire - Dress to impress!"],
+        items: ["Villa Baulieu, Route B14C, 13840 ROGNES EN PROVENCE, France", "June 7th, 2025", "2:30 PM", "Your best attire - Dress to impress!"],
       },
       {
         title: "Important Notes",

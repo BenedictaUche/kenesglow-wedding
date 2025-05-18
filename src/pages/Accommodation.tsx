@@ -252,8 +252,7 @@ const Accommodation = () => {
 
             <div className="p-4 sm:p-6 md:p-8 text-center">
               <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
-                For your convenience, private luxury transportation will be provided for all guests
-                staying at Novotel to and from the wedding venue.
+                For your convenience, shuttles will be organized from hotel to venue and from venue to hotel for <b>Auberge La Coste, Fonscolombe, Hotel Set & Spa and Aquabella</b>.
               </p>
               <div className="mt-4 md:mt-6 inline-block border-t border-gray-200 pt-4 md:pt-6">
                 <p className="text-sm md:text-base text-gray-600 italic">

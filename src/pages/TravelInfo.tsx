@@ -24,7 +24,7 @@ const TravelInfo = () => {
                     <div className='flex justify-center'>
                         <img src="/images/transport.webp" alt="Airport transport" className='w-full max-w-[550px]' />
                     </div>
-                    <p className='tracking-[1px] text-[18px] mt-4'>We recommend ordering a shuttle. You can also take the bus or train.</p>
+                    <p className='tracking-[1px] text-[18px] mt-4'>We recommend ordering a taxi or Uber from the airport</p>
                 </div>
             </div>
         </div>
