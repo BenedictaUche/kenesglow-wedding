@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Mail, ExternalLink } from "lucide-react";
 import Aquabella from "/images/aquabella1.jpg";
 import Coste from "/images/coste1.jpeg";
 import Fonscolombes from "/images/fonscolombe.jpg";
+import Aixenprovince from "/images/aixenprovince.jpg";
 
 const hotels = [
   {
@@ -21,6 +22,14 @@ const hotels = [
     description: "Château de Fonscolombe is a beautiful hotel located in the countryside of Marseille, France. It offers a peaceful and serene atmosphere, perfect for relaxation. The hotel features elegant rooms, a restaurant, and a garden. It is just 15 minutes (14km) away from the wedding venue.",
     website: "https://www.fonscolombe.com/en/",
     email: "contact@fonscolombe.com"
+  },
+  {
+    name: "LE SET HOTEL & SPA",
+    address: "1335 Chemin De Granet, Aix-en-Provence, France",
+    image: Aixenprovince,
+    description: "LE SET HOTEL & SPA is a modern hotel located in the heart of Aix-en-Provence, France. It offers stylish accommodations, a spa, and a rooftop terrace with panoramic views. The hotel is just 20 minutes (21km) away from the wedding venue.",
+    website: "https://setclub.com/setclub-hotel/",
+    email: ""
   },
   {
     name: "Château la Coste - L'Auberge",
@@ -50,13 +59,10 @@ const HotelCard = ({ hotel }: { hotel: Hotel }) => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Set initial value
     checkScreenSize();
 
-    // Add event listener for window resize
     window.addEventListener('resize', checkScreenSize);
 
-    // Cleanup
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
@@ -89,14 +95,14 @@ const HotelCard = ({ hotel }: { hotel: Hotel }) => {
 
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mt-6">
             <Button
-              className="bg-black hover:bg-gray-800 text-white border border-black px-4 md:px-8 py-3 md:py-6 flex items-center justify-center gap-2 tracking-wider uppercase text-xs md:text-sm rounded-none"
+              className="bg-black hover:bg-gray-800 text-white border border-black px-4 md:px-8 py-3 md:py-6 flex items-center justify-center gap-2 tracking-wider uppercase text-xs md:text-sm rounded-none cursor-pointer"
               onClick={() => handleEmailClick(hotel.email)}
             >
               <Mail size={isMobile ? 14 : 16} />
               Contact Hotel
             </Button>
             <Button
-              className="bg-white hover:bg-gray-100 text-black border border-black px-4 md:px-8 py-3 md:py-6 flex items-center justify-center gap-2 tracking-wider uppercase text-xs md:text-sm rounded-none"
+              className="bg-white hover:bg-gray-100 text-black border border-black px-4 md:px-8 py-3 md:py-6 flex items-center justify-center gap-2 tracking-wider uppercase text-xs md:text-sm rounded-none cursor-pointer"
               onClick={() => handleWebsiteClick(hotel.website)}
             >
               <ExternalLink size={isMobile ? 14 : 16} />
