@@ -4,26 +4,16 @@ import OutfitTwo from "/images/trad-1.jpg";
 
 const events = [
     {
-        time: "4:00 PM - 5:00 PM",
-        title: "CEREMONY",
+        time: "3:00 - 4:00 PM",
+        title: "WEDDING CEREMONY",
         attire: "Attire: Formal Attire (Black-tie optional)",
-        description: "Our ceremony will be held outdoors, weather permitting.",
+        description: "Join us as we exchange our vows in a beautiful outdoor ceremony, weather permitting.",
     },
     {
-        time: "4:00 PM - 5:00 PM",
-        title: "CEREMONY",
+        time: "4:00 PM - Late",
+        title: "RECEPTION PARTY",
         attire: "Attire: Formal Attire (Black-tie optional)",
-        description: "Our ceremony will be held outdoors, weather permitting.",
-    }, {
-        time: "4:00 PM - 5:00 PM",
-        title: "CEREMONY",
-        attire: "Attire: Formal Attire (Black-tie optional)",
-        description: "Our ceremony will be held outdoors, weather permitting.",
-    }, {
-        time: "4:00 PM - 5:00 PM",
-        title: "CEREMONY",
-        attire: "Attire: Formal Attire (Black-tie optional)",
-        description: "Our ceremony will be held outdoors, weather permitting.",
+        description: "Celebrate with us at the reception with food, music, and dancing!",
     },
 ];
 
@@ -50,7 +40,7 @@ const Home = () => {
                 <p className="text-[23px] uppercase font-normal">June 7, 2025</p>
                 <p className="text-[23px] uppercase font-normal">2:30 PM</p>
                 <div className="mx-auto text-center mt-4 text-[#828282] font-medium text-lg tracking-[1px]">
-                    <p>Domaine de Baulieu - Route B14C</p>
+                    <p>Villa Baulieu - Route B14C</p>
                     <p>13840 ROGNES EN PROVENCE</p>
                 </div>
 

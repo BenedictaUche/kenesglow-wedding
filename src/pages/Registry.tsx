@@ -8,7 +8,7 @@ const Registry = () => {
       <p className='text-lg tracking-wide font-normal mb-8'>
         Your presence is the greatest gift, but we'd be grateful for anything from our registry to celebrate our special day.
         <br />
-        <strong>THANK YOU / GRACIAS!!</strong>
+        <strong>THANK YOU / MERCI!!</strong>
       </p>
 
       {/* Bank Account Details */}
