@@ -1,6 +1,7 @@
 // import HomeHeaderImg from "/images/home-headerImg.png";
 import VenueLocation from "/images/DomainedeBaulieu.jpg";
-import OutfitTwo from "/images/trad-1.jpg";
+import WhiteFour from "/images/white-4.jpeg";
+
 
 const events = [
     {
@@ -22,7 +23,7 @@ const Home = () => {
         <div className="p-4 font-abhaya">
             <div className="relative w-full h-64 sm:h-80 md:h-[500px] lg:h-[700px] overflow-hidden">
                 <img
-                    src={OutfitTwo}
+                    src={WhiteFour}
                     alt="White Wedding"
                     className="w-full h-full object-cover object-center"
                 />

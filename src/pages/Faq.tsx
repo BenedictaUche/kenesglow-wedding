@@ -11,7 +11,7 @@ const Faq = () => {
         <div className="font-abhaya flex flex-col items-center px-4 py-10 text-[#130c0e]">
             {/* Wedding Image */}
             <img
-                src="/images/prewedding.jpg"
+                src="/images/white-4.jpeg"
                 alt="Wedding"
                 className="w-full max-w-2xl mb-6"
             />
@@ -77,7 +77,7 @@ const Faq = () => {
                 </AccordionItem>
 
                 <img
-                    src="/images/prewedding.jpg"
+                    src="/images/white-1.jpeg"
                     alt="Wedding"
                     className="w-full max-w-2xl mb-6 mt-12"
                 />
@@ -93,7 +93,7 @@ const Faq = () => {
 
 
                 <img
-                    src="/images/prewedding.jpg"
+                    src="/images/white-4.jpeg"
                     alt="Wedding"
                     className="w-full max-w-2xl mb-6"
                 />

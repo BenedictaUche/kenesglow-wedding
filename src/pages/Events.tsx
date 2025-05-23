@@ -18,7 +18,7 @@ const events = [
   },
   {
     date: "JUNE 7TH - Wedding Day & Ceremonies",
-    image: "/images/trad-2.jpg",
+    image: "/images/white-6.jpeg",
     description:
       "The moment we have all been waiting for. As we celebrate the couple of the moment Kene and Ugo, we want to ensure all our amazing guests who have joined us for this special occasion have a wonderful experience. We have put together a few details to help you navigate the day.",
     details: [
@@ -81,7 +81,7 @@ const Events = () => {
             {event.date}
           </h2>
 
-          <div className="relative w-full h-56 sm:h-72 md:h-96 lg:h-[550px] mb-12 overflow-hidden">
+          <div className="relative w-full h-56 sm:h-72 md:h-96 lg:h-[650px] mb-12 overflow-hidden">
             <img
               src={event.image}
               alt={event.date}

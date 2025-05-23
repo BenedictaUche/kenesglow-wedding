@@ -1,12 +1,12 @@
 const photos = [
-  { src: "/images/trad-1.jpg", alt: "Couple running on beach", bw: false },
-  { src: "/images/trad-2.jpg", alt: "Holding hands by the ocean", bw: true },
-  { src: "/images/trad-3.jpg", alt: "Elegant staircase", bw: false },
-  { src: "/images/trad-4.jpg", alt: "Black and white beach moment", bw: false },
-  { src: "/images/trad-5.jpg", alt: "Romantic columns scene", bw: true },
-  { src: "/images/trad-6.jpg", alt: "Elevator wedding photo", bw: false },
-  { src: "/images/trad-7.jpg", alt: "Sunset beach walk", bw: true },
-  { src: "/images/trad-3.jpg", alt: "Close-up of wedding rings", bw: false },
+  { src: "/images/white-1.jpeg", alt: "Couple running on beach", bw: false },
+  { src: "/images/white-2.jpeg", alt: "Holding hands by the ocean", bw: false },
+  { src: "/images/white-3.jpeg", alt: "Elegant staircase", bw: true },
+  { src: "/images/white-5.jpeg", alt: "Romantic columns scene", bw: false },
+  { src: "/images/white-4.jpeg", alt: "Black and white beach moment", bw: false },
+  { src: "/images/white-6.jpeg", alt: "Elevator wedding photo", bw: false },
+  { src: "/images/white-2.jpeg", alt: "Sunset beach walk", bw: false },
+  { src: "/images/white-3.jpeg", alt: "Close-up of wedding rings", bw: false },
 ];
 
 const Photos = () => {
