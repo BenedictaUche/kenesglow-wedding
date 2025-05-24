@@ -3,7 +3,7 @@ const events = [
     date: "JUNE 6TH - Arrival & Welcome Cocktail",
     image: "/images/cocktail1.jpg",
     description:
-      "For those arriving before the wedding date, you are specially invited to the welcome cocktail as you settle into the resort.",
+      "Guests arriving before the wedding day may be invited to a private welcome cocktail. This intimate gathering is by invitation only and reserved for close friends and family",
     deadline: "**Kindly book your room at the recommended hotels as early as the 18th of May as there is limited availability. **",
     details: [
       {
