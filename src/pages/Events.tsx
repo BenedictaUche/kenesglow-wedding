@@ -3,8 +3,8 @@ const events = [
     date: "JUNE 6TH - Arrival & Welcome Cocktail",
     image: "/images/cocktail1.jpg",
     description:
-      "For those arriving before the traditional wedding date, you are specially invited to the welcome cocktail as you settle into the resort.",
-    deadline: "**Kindly book your room at the resort as early as the 18th of May as there is limited availability. **",
+      "For those arriving before the wedding date, you are specially invited to the welcome cocktail as you settle into the resort.",
+    deadline: "**Kindly book your room at the recommended hotels as early as the 18th of May as there is limited availability. **",
     details: [
       {
         title: "Guide",
@@ -97,7 +97,7 @@ const Events = () => {
 
             {event.deadline && (
               <p className="text-center text-xl font-medium mb-16 border-y border-amber-200 py-6">
-                Kindly book your room at the resort as early as the 18th of May as there is limited availability.
+                Kindly book your room at the recommended hotels as early as the 18th of May as there is limited availability.
               </p>
             )}
 

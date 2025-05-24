@@ -1,5 +1,5 @@
 // import HomeHeaderImg from "/images/home-headerImg.png";
-import VenueLocation from "/images/DomainedeBaulieu.jpg";
+import VenueLocation from "/images/villa-baulieu.jpg";
 import WhiteFour from "/images/white-4.jpeg";
 
 
