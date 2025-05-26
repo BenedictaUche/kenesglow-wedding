@@ -40,7 +40,7 @@ const App = () => {
     }
     switch (activeTab) {
       case "home":
-        return <Home />;
+        return <Home setActiveTab={setActiveTab}/>;
       case "events":
         return <Events />;
       case "accommodation":
@@ -60,7 +60,7 @@ const App = () => {
       case "wedding-party":
         return <WeddingParty />;
       default:
-        return <Home />;
+        return <Home setActiveTab={setActiveTab}/>;
     }
   };
 

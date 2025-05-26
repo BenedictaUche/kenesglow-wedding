@@ -8,7 +8,7 @@ import {
 
 const Faq = () => {
     return (
-        <div className="font-abhaya flex flex-col items-center px-4 py-10 text-[#130c0e]">
+        <div className="font-abhaya flex flex-col items-center px-4 py-10 text-[#130c0e]" id="faq">
             {/* Wedding Image */}
             <img
                 src="/images/white-4.jpeg"

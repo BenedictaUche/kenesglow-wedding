@@ -2,6 +2,7 @@
 import VenueLocation from "/images/villa-baulieu.jpg";
 import WhiteFour from "/images/white-4.jpeg";
 
+import { FC } from "react";
 
 const events = [
     {
@@ -18,7 +19,11 @@ const events = [
     },
 ];
 
-const Home = () => {
+interface HomeProps {
+    setActiveTab: (tab: string) => void;
+}
+
+const Home: FC<HomeProps> = ({ setActiveTab }) => {
     return (
         <div className="p-4 font-abhaya">
             <div className="relative w-full h-64 sm:h-80 md:h-[500px] lg:h-[700px] overflow-hidden">
@@ -82,6 +87,49 @@ const Home = () => {
                     <p className="text-xl text-[#828282] underline">
                         Route B14C, 13840 ROGNES EN PROVENCE, France
                     </p>
+                </div>
+            </div>
+
+            {/* Guest Information Section */}
+            <div className="mt-24 mb-16 flex flex-col items-center text-center">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#C4C4C4] to-transparent mb-12"></div>
+
+                <div className="w-full max-w-xl space-y-8 text-[#130c0e]">
+                    <div className="group">
+                        <p className="text-2xl font-light tracking-wide text-[#828282] mb-1">
+                            Accommodation & Hotels
+                        </p>
+                        <button
+                            onClick={() => setActiveTab('accommodation')}
+                            className="text-xl uppercase tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
+                        >
+                            View Options
+                        </button>
+                    </div>
+
+                    <div className="group">
+                        <p className="text-2xl font-light tracking-wide text-[#828282] mb-1">
+                            Kindly Confirm Your Attendance
+                        </p>
+                        <button
+                            onClick={() => window.open('https://kene-ugo-wedding.crd.co', '_blank')}
+                            className="text-xl uppercase tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
+                        >
+                            RSVP
+                        </button>
+                    </div>
+
+                    <div className="group">
+                        <p className="text-2xl font-light tracking-wide text-[#828282] mb-1">
+                            Questions & Inquiries
+                        </p>
+                        <button
+                            onClick={() => setActiveTab('qa')}
+                            className="text-xl uppercase tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
+                        >
+                            Contact Us
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
