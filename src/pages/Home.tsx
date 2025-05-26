@@ -7,13 +7,13 @@ const events = [
     {
         time: "3:00 - 4:00 PM",
         title: "WEDDING CEREMONY",
-        attire: "Attire: Formal Attire (Black-tie optional)",
+        attire: "Attire: Formal Attire (Black-tie)",
         description: "Join us as we exchange our vows in a beautiful outdoor ceremony, weather permitting.",
     },
     {
         time: "4:00 PM - Late",
         title: "RECEPTION PARTY",
-        attire: "Attire: Formal Attire (Black-tie optional)",
+        attire: "Attire: Formal Attire (Black-tie)",
         description: "Celebrate with us at the reception with food, music, and dancing!",
     },
 ];
