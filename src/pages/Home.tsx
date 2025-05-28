@@ -96,36 +96,36 @@ const Home: FC<HomeProps> = ({ setActiveTab }) => {
 
                 <div className="w-full max-w-xl space-y-8 text-[#130c0e]">
                     <div className="group">
-                        <p className="text-2xl font-light tracking-wide text-[#828282] mb-1">
+                        <p className="text-2xl font-light tracking-wide [#130c0e]  mb-1 uppercase">
                             Accommodation & Hotels
                         </p>
                         <button
                             onClick={() => setActiveTab('accommodation')}
-                            className="text-xl uppercase tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
+                            className="text-xl capitalize tracking-[2px] text-[#828282] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
                         >
                             View Options
                         </button>
                     </div>
 
                     <div className="group">
-                        <p className="text-2xl font-light tracking-wide text-[#828282] mb-1">
+                        <p className="text-2xl font-light tracking-wide text-[#130c0e] mb-1 uppercase">
                             Kindly Confirm Your Attendance
                         </p>
                         <button
                             onClick={() => window.open('https://kene-ugo-wedding.crd.co', '_blank')}
-                            className="text-xl uppercase tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
+                            className="text-xl capitalize tracking-[2px] text-[#828282] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
                         >
                             RSVP
                         </button>
                     </div>
 
                     <div className="group">
-                        <p className="text-2xl font-light tracking-wide text-[#828282] mb-1">
+                        <p className="text-2xl font-light tracking-wide text-[#130c0e] mb-1 uppercase">
                             Questions & Inquiries
                         </p>
                         <button
                             onClick={() => setActiveTab('qa')}
-                            className="text-xl uppercase tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
+                            className="text-xl capitalize tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
                         >
                             Contact Us
                         </button>
