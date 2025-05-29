@@ -62,14 +62,14 @@ const Registry = () => {
       icon: MessageCircle,
       text: "Message us directly",
       action: () => window.open("https://wa.me/2348012345678?text=Hello!%20I%20would%20like%20to%20discuss%20a%20wedding%20gift%20for%20your%20special%20day.", "_blank"),
-      color: "bg-green-600 hover:bg-green-700"
+      color: "bg-green-400 hover:bg-green-700"
     },
     {
       type: "Call",
       icon: Phone,
       text: "Speak with us",
       action: () => window.open("tel:+2348012345678"),
-      color: "bg-blue-600 hover:bg-blue-700"
+      color: "bg-blue-400 hover:bg-blue-700"
     },
     {
       type: "Email",
