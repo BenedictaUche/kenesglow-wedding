@@ -1,12 +1,10 @@
-
 import { useState, useEffect, SetStateAction } from 'react';
-import { Gift, MessageCircle, Phone, Mail,Heart, Copy, Check } from 'lucide-react';
+import { Gift, MessageCircle, Phone, Mail, Heart, Copy, Check } from 'lucide-react';
 
 const Registry = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [copied, setCopied] = useState('');
-  type GiftCategory = 'home' | 'kitchen' | 'experiences' | 'all';
-  const [selectedCategory, setSelectedCategory] = useState<GiftCategory>('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     setIsVisible(true);
@@ -62,14 +60,14 @@ const Registry = () => {
       icon: MessageCircle,
       text: "Message us directly",
       action: () => window.open("https://wa.me/2348012345678?text=Hello!%20I%20would%20like%20to%20discuss%20a%20wedding%20gift%20for%20your%20special%20day.", "_blank"),
-      color: "bg-green-400 hover:bg-green-700"
+      color: "bg-green-600 hover:bg-green-700"
     },
     {
       type: "Call",
       icon: Phone,
       text: "Speak with us",
       action: () => window.open("tel:+2348012345678"),
-      color: "bg-blue-400 hover:bg-blue-700"
+      color: "bg-blue-600 hover:bg-blue-700"
     },
     {
       type: "Email",
@@ -88,7 +86,7 @@ const Registry = () => {
         <div className='absolute bottom-32 right-16 w-96 h-96 bg-gradient-to-br from-stone-300 to-stone-500 rounded-full blur-3xl'></div>
       </div>
 
-      <div className={`relative z-10 max-w-4xl mx-auto px-6 py-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
         {/* Header */}
         <div className='text-center mb-16'>
@@ -106,9 +104,10 @@ const Registry = () => {
         </div>
 
         {/* Gift Categories Filter */}
-        <div className='flex justify-center mb-12'>
-          <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-white/50'>
-            <div className='flex space-x-2'>
+        {/* Gift Categories Filter */}
+        <div className='flex justify-center mb-12 px-4'>
+          <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-white/50 w-full max-w-4xl'>
+            <div className='grid grid-cols-2 sm:flex sm:space-x-2 gap-2 sm:gap-0'>
               {[
                 { key: 'all', label: 'All Items' },
                 { key: 'home', label: 'Home & Living' },
@@ -117,14 +116,16 @@ const Registry = () => {
               ].map((category) => (
                 <button
                   key={category.key}
-                  onClick={() => setSelectedCategory(category.key as GiftCategory)}
-                  className={`px-6 py-3 rounded-xl text-sm font-light tracking-wide transition-all duration-300 ${
+                  onClick={() => setSelectedCategory(category.key)}
+                  className={`px-4 py-3 sm:px-6 rounded-xl text-xs sm:text-sm font-light tracking-wide transition-all duration-300 touch-manipulation min-h-[44px] flex items-center justify-center ${
                     selectedCategory === category.key
                       ? 'bg-stone-800 text-white shadow-lg'
-                      : 'text-stone-600 hover:bg-stone-100/50'
+                      : 'text-stone-600 hover:bg-stone-100/50 active:bg-stone-100/70'
                   }`}
                 >
-                  {category.label}
+                  <span className='text-center leading-tight'>
+                    {category.label}
+                  </span>
                 </button>
               ))}
             </div>
