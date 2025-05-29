@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
+
 import { useState, useEffect, SetStateAction } from 'react';
-import { Gift, MessageCircle, Phone, Mail, MapPin, Heart, Star, Copy, Check } from 'lucide-react';
+import { Gift, MessageCircle, Phone, Mail,Heart, Copy, Check } from 'lucide-react';
 
 const Registry = () => {
   const [isVisible, setIsVisible] = useState(false);
