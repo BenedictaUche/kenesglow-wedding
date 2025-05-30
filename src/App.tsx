@@ -32,7 +32,6 @@ const MainLayout = () => {
           <Route path="/marseille" element={<Marseille />} />
           <Route path="/photos" element={<Photos />} />
           <Route path="/wedding-party" element={<WeddingParty />} />
-          <Route path="/registry" element={<Registry />} /> {/* ✅ Always accessible */}
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
@@ -56,20 +55,21 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Entry page still protected */}
+        {/* Public Registry Route */}
+        <Route path="/registry" element={<Registry />} />
+
+        {/* Public Entry Route */}
         <Route
           path="/entry"
           element={<EntryPage onCodeSubmit={() => setIsAuthenticated(true)} />}
         />
 
-        {/* Registry is always accessible */}
-        <Route path="/registry" element={<MainLayout />} />
-
-        {/* Everything else is protected */}
-        <Route
-          path="*"
-          element={shouldAllowAccess ? <MainLayout /> : <EntryPage onCodeSubmit={() => setIsAuthenticated(true)} />}
-        />
+        {/* Protected Main Routes */}
+        {shouldAllowAccess ? (
+          <Route path="/*" element={<MainLayout />} />
+        ) : (
+          <Route path="/*" element={<EntryPage onCodeSubmit={() => setIsAuthenticated(true)} />} />
+        )}
       </Routes>
     </Router>
   );
