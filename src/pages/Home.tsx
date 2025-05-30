@@ -2,8 +2,6 @@
 import VenueLocation from "/images/villa-baulieu.jpg";
 import WhiteFour from "/images/white-4.jpeg";
 
-import { FC } from "react";
-
 const events = [
     {
         time: "3:00 - 4:00 PM",
@@ -19,11 +17,11 @@ const events = [
     },
 ];
 
-interface HomeProps {
-    setActiveTab: (tab: string) => void;
-}
 
-const Home: FC<HomeProps> = ({ setActiveTab }) => {
+const Home = () => {
+    const handleRedirectToDifferentPage = (page: any) => {
+        window.location.href = page;
+    }
     return (
         <div className="p-4 font-abhaya">
             <div className="relative w-full h-64 sm:h-80 md:h-[500px] lg:h-[700px] overflow-hidden">
@@ -100,7 +98,7 @@ const Home: FC<HomeProps> = ({ setActiveTab }) => {
                             Accommodation & Hotels
                         </p>
                         <button
-                            onClick={() => setActiveTab('accommodation')}
+                            onClick={() => handleRedirectToDifferentPage('/accommodation')}
                             className="text-xl capitalize tracking-[2px] text-[#828282] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
                         >
                             View Options
@@ -124,7 +122,7 @@ const Home: FC<HomeProps> = ({ setActiveTab }) => {
                             Questions & Inquiries
                         </p>
                         <button
-                            onClick={() => setActiveTab('qa')}
+                            onClick={() => handleRedirectToDifferentPage('/qa')}
                             className="text-xl capitalize tracking-[2px] text-[#130c0e] border-b border-[#130c0e] border-opacity-30 hover:border-opacity-70 transition-all duration-300 pb-1 cursor-pointer"
                         >
                             Contact Us

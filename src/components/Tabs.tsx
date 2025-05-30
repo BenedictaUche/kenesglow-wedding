@@ -1,43 +1,41 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
-interface TabsProps {
-  activeTab: string;
-  setActiveTab: Dispatch<SetStateAction<string>>;
-}
-
-const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
+const Tabs = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const tabs = [
-    { id: "home", label: "Home" },
-    { id: "events", label: "Events" },
-    { id: "accommodation", label: "Accommodation" },
-    { id: "travel-info", label: "Travel Info" },
-    { id: "marseille", label: "Marseille" },
-    { id: "wedding-party", label: "Wedding Party" },
-    { id: "photos", label: "Photos" },
-    { id: "attire", label: "Attire" },
-    { id: "qa", label: "Q + A" },
-    // { id: "things-to-do", label: "Things to Do" },
-    { id: "registry", label: "Registry" },
-    { id: "rsvp", label: "RSVP", external: "https://kene-ugo-wedding.crd.co" },
+    { id: "home", label: "Home", path: "/" },
+    { id: "events", label: "Events", path: "/events" },
+    { id: "accommodation", label: "Accommodation", path: "/accommodation" },
+    { id: "travel-info", label: "Travel Info", path: "/travel-info" },
+    { id: "marseille", label: "Marseille", path: "/marseille" },
+    { id: "wedding-party", label: "Wedding Party", path: "/wedding-party" },
+    { id: "photos", label: "Photos", path: "/photos" },
+    { id: "attire", label: "Attire", path: "/attire" },
+    { id: "qa", label: "Q + A", path: "/qa" },
+    { id: "registry", label: "Registry", path: "/registry" },
+    {
+      id: "rsvp",
+      label: "RSVP",
+      external: "https://kene-ugo-wedding.crd.co",
+    },
   ];
 
-  const handleTabClick = (tab: { id: string; external?: string }) => {
-    if (tab.external) {
-      window.open(tab.external, "_blank");
-      // Or use window.location.href = tab.external to open in same tab
-      return;
-    }
-    setActiveTab(tab.id);
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = "auto";
   };
+
+  const isActive = (path: string) =>
+    location.pathname === path || (path === "/" && location.pathname === "");
 
   return (
     <nav className="font-abhaya text-[#130c0e] text-lg tracking-[2px]">
       <div className="container mx-auto p-4 flex justify-end">
-        {/* Mobile Menu Button (Hidden on Larger Screens) */}
         <button
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -57,7 +55,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -67,44 +65,60 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center z-40"
           >
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  if (tab.external) {
-                    window.open(tab.external, "_blank");
-                    setIsMobileMenuOpen(false);
-                    document.body.style.overflow = "auto";
-                    return;
-                  }
-                  setActiveTab(tab.id);
-                  setIsMobileMenuOpen(false);
-                  document.body.style.overflow = "auto";
-                }}
-                className={`block text-center py-2 font-eb-garamond text-2xl transition-all ${
-                  activeTab === tab.id ? "border-b-2 border-black text-black" : "text-gray-700"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {tabs.map((tab) =>
+              tab.external ? (
+                <a
+                  key={tab.id}
+                  href={tab.external}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobileMenu}
+                  className="block text-center py-2 font-eb-garamond text-2xl text-gray-700"
+                >
+                  {tab.label}
+                </a>
+              ) : (
+                <Link
+                  key={tab.id}
+                  to={tab.path!}
+                  onClick={closeMobileMenu}
+                  className={`block text-center py-2 font-eb-garamond text-2xl transition-all ${
+                    isActive(tab.path!) ? "border-b-2 border-black text-black" : "text-gray-700"
+                  }`}
+                >
+                  {tab.label}
+                </Link>
+              )
+            )}
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Tabs for Larger Screens (Hidden on Mobile) */}
+      {/* Desktop Tabs */}
       <div className="hidden md:flex space-x-6 flex-wrap justify-center">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => handleTabClick(tab)}
-            className={`px-4 py-2 font-eb-garamond text-2xl ${
-              activeTab === tab.id ? "border-b-2 border-black text-black" : "text-gray-700"
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+        {tabs.map((tab) =>
+          tab.external ? (
+            <a
+              key={tab.id}
+              href={tab.external}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 font-eb-garamond text-2xl text-gray-700"
+            >
+              {tab.label}
+            </a>
+          ) : (
+            <Link
+              key={tab.id}
+              to={tab.path!}
+              className={`px-4 py-2 font-eb-garamond text-2xl transition-all ${
+                isActive(tab.path!) ? "border-b-2 border-black text-black" : "text-gray-700"
+              }`}
+            >
+              {tab.label}
+            </Link>
+          )
+        )}
       </div>
     </nav>
   );

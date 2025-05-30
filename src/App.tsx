@@ -16,8 +16,9 @@ import WeddingParty from "./pages/WeddingParty";
 import Footer from "./components/Footer";
 import EntryPage from "./pages/EntryPage";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 const App = () => {
-  const [activeTab, setActiveTab] = useState("home");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAfterAccessDate, setIsAfterAccessDate] = useState(false);
   const [_, setIsDDay] = useState(false);
@@ -34,52 +35,33 @@ const App = () => {
     );
   }, []);
 
-  const renderPage = () => {
-    if (!isAuthenticated && !isAfterAccessDate) {
-      return <EntryPage onCodeSubmit={(_code) => setIsAuthenticated(true)} />;
-    }
-    switch (activeTab) {
-      case "home":
-        return <Home setActiveTab={setActiveTab}/>;
-      case "events":
-        return <Events />;
-      case "accommodation":
-        return <Accommodation />;
-      case "travel-info":
-        return <TravelInfo />;
-      case "attire":
-        return <Attire />;
-      case "qa":
-        return <Faq />;
-      case "marseille":
-        return <Marseille />;
-      case "photos":
-        return <Photos />;
-      case "registry":
-        return <Registry />;
-      case "wedding-party":
-        return <WeddingParty />;
-      default:
-        return <Home setActiveTab={setActiveTab}/>;
-    }
-  };
+  if (!isAuthenticated && !isAfterAccessDate) {
+    return <EntryPage onCodeSubmit={(_code) => setIsAuthenticated(true)} />;
+  }
 
   return (
-    <div className="container mx-auto my-5 relative">
-      {isAuthenticated || isAfterAccessDate ? (
-        <>
-          <Countdown />
-          <Tabs
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-          />
-          <main className="mt-20">{renderPage()}</main>
-          <Footer />
-        </>
-      ) : (
-        renderPage()
-      )}
-    </div>
+    <Router>
+      <div className="container mx-auto my-5 relative">
+        <Countdown />
+        <Tabs />
+        <main className="mt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/accommodation" element={<Accommodation />} />
+            <Route path="/travel-info" element={<TravelInfo />} />
+            <Route path="/attire" element={<Attire />} />
+            <Route path="/qa" element={<Faq />} />
+            <Route path="/marseille" element={<Marseille />} />
+            <Route path="/photos" element={<Photos />} />
+            <Route path="/registry" element={<Registry />} />
+            <Route path="/wedding-party" element={<WeddingParty />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
